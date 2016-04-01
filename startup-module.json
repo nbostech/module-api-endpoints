@@ -1,0 +1,195 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "0.0.0",
+        "title": "50k Network Startup Fundraising module"
+    },
+    "basePath": "/api/startup-fundraising/v0/tenants",
+    "paths": {
+        "/{tenantId}/users/{user_type}": {
+            "get": {
+                "summary": "List of All `users` type Investors",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "tenantId",
+                        "description": "ID of tenant that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "path",
+                        "name": "user_type",
+                        "description": "type (investors, startups, portfolio) of users that needs to be fetched",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/{tenantId}/users/signup": {
+            "post": {
+                "summary": "Create New User.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "tenantId",
+                        "description": "ID of tenant that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/{tenantId}/users/{userId}": {
+            "get": {
+                "summary": "get User profile.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "tenantId",
+                        "description": "ID of tenant that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "path",
+                        "name": "userId",
+                        "description": "ID of user that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update User profile.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "tenantId",
+                        "description": "ID of tenant that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "path",
+                        "name": "userId",
+                        "description": "ID of user that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/{tenantId}/users/dealbank": {
+            "get": {
+                "summary": "All List of startups on 50k network.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "tenantId",
+                        "description": "ID of tenant that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/{tenantId}/users/funding_progress": {
+            "get": {
+                "summary": "All List of startups who have minimum funds on 50k network.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "tenantId",
+                        "description": "ID of tenant that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/{tenantId}/users/{userId}/add_to_favourite": {
+            "post": {
+                "summary": "Add a startup as favourite to an investor.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "tenantId",
+                        "description": "ID of tenant that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "path",
+                        "name": "userId",
+                        "description": "ID of user that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/{tenantId}/users/{userId}/favourite_startups": {
+            "get": {
+                "summary": "List of all favourite startups of a Investor.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "tenantId",
+                        "description": "ID of tenant that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "path",
+                        "name": "userId",
+                        "description": "ID of user that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        }
+    }
+}
