@@ -2,21 +2,16 @@
     "swagger": "2.0",
     "info": {
         "version": "0.0.0",
-        "title": "50k Network Startup Fundraising module"
+        "title": "50k Network Startup Fundraising & Event modules"
     },
-    "basePath": "/api/startup-fundraising/v0/tenants",
+    "basePath": "/api",
     "paths": {
-        "/{tenantId}/users/{user_type}": {
+        "/startup-fundraising/v0/users/{user_type}": {
             "get": {
                 "summary": "List of All `users` type Investors",
+                "tags": ["module:startup-fundraising"],
                 "parameters": [
-                    {
-                        "in": "path",
-                        "name": "tenantId",
-                        "description": "ID of tenant that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
-                    },
+                    
                     {
                         "in": "path",
                         "name": "user_type",
@@ -32,17 +27,12 @@
                 }
             }
         },
-        "/{tenantId}/users/signup": {
+        "/startup-fundraising/v0/users/signup": {
             "post": {
                 "summary": "Create New User.",
+                "tags": ["module:startup-fundraising"],
                 "parameters": [
-                    {
-                        "in": "path",
-                        "name": "tenantId",
-                        "description": "ID of tenant that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
-                    }
+                   
                 ],
                 "responses": {
                     "200": {
@@ -51,17 +41,12 @@
                 }
             }
         },
-        "/{tenantId}/users/{userId}": {
+        "/startup-fundraising/v0/users/{userId}": {
             "get": {
                 "summary": "get User profile.",
+                "tags": ["module:startup-fundraising"],
                 "parameters": [
-                    {
-                        "in": "path",
-                        "name": "tenantId",
-                        "description": "ID of tenant that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
-                    },
+                   
                     {
                         "in": "path",
                         "name": "userId",
@@ -78,14 +63,8 @@
             },
             "put": {
                 "summary": "Update User profile.",
+                "tags": ["module:startup-fundraising"],
                 "parameters": [
-                    {
-                        "in": "path",
-                        "name": "tenantId",
-                        "description": "ID of tenant that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
-                    },
                     {
                         "in": "path",
                         "name": "userId",
@@ -101,17 +80,12 @@
                 }
             }
         },
-        "/{tenantId}/users/dealbank": {
+        "/startup-fundraising/v0/users/dealbank": {
             "get": {
                 "summary": "All List of startups on 50k network.",
+                "tags": ["module:startup-fundraising"],
                 "parameters": [
-                    {
-                        "in": "path",
-                        "name": "tenantId",
-                        "description": "ID of tenant that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
-                    }
+                   
                 ],
                 "responses": {
                     "200": {
@@ -120,17 +94,11 @@
                 }
             }
         },
-        "/{tenantId}/users/funding_progress": {
+        "/startup-fundraising/v0/users/funding_progress": {
             "get": {
                 "summary": "All List of startups who have minimum funds on 50k network.",
+                "tags": ["module:startup-fundraising"],
                 "parameters": [
-                    {
-                        "in": "path",
-                        "name": "tenantId",
-                        "description": "ID of tenant that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
-                    }
                 ],
                 "responses": {
                     "200": {
@@ -139,17 +107,11 @@
                 }
             }
         },
-        "/{tenantId}/users/{userId}/add_to_favourite": {
+        "/startup-fundraising/v0/users/{userId}/add_to_favourite": {
             "post": {
                 "summary": "Add a startup as favourite to an investor.",
+                "tags": ["module:startup-fundraising"],
                 "parameters": [
-                    {
-                        "in": "path",
-                        "name": "tenantId",
-                        "description": "ID of tenant that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
-                    },
                     {
                         "in": "path",
                         "name": "userId",
@@ -165,17 +127,11 @@
                 }
             }
         },
-        "/{tenantId}/users/{userId}/favourite_startups": {
+        "/startup-fundraising/v0/users/{userId}/favourite_startups": {
             "get": {
                 "summary": "List of all favourite startups of a Investor.",
+                "tags": ["module:startup-fundraising"],
                 "parameters": [
-                    {
-                        "in": "path",
-                        "name": "tenantId",
-                        "description": "ID of tenant that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
-                    },
                     {
                         "in": "path",
                         "name": "userId",
@@ -190,6 +146,153 @@
                     }
                 }
             }
-        }
+        },
+        "/events/v0/{tenantId}/events": {
+            "get": {
+                "summary": "List of all Events.",
+                "tags": ["module:events"],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "tenantId",
+                        "description": "ID of tenant that needs to be fetche",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/events/v0/{tenantId}/events/{eventId}": {
+            "get": {
+                "summary": "Get information about a specific event.",
+                "tags": ["module:events"],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "tenantId",
+                        "description": "ID of tenant that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "path",
+                        "name": "eventId",
+                        "description": "ID of event that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update an Event.",
+                "tags": ["module:events"],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "tenantId",
+                        "description": "ID of tenant that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "path",
+                        "name": "eventId",
+                        "description": "ID of event that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/events/v0/{tenantId}/events/new": {
+            "post": {
+                "summary": "Create an Event.",
+                "tags": ["module:events"],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "tenantId",
+                        "description": "ID of tenant that needs to be fetched",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/events/v0/{tenantId}/events/{eventId}/attend": {
+            "post": {
+                "summary": "Add rsvp as a investor.",
+                "tags": ["module:events"],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "tenantId",
+                        "description": "ID of tenant that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "path",
+                        "name": "eventId",
+                        "description": "ID of event that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/events/v0/{tenantId}/events/{eventId}/attendencies": {
+            "get": {
+                "summary": "List of All users who sent RSVP for an Event.",
+                "tags": ["module:events"],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "tenantId",
+                        "description": "ID of tenant that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "path",
+                        "name": "eventId",
+                        "description": "ID of event that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        }    
     }
 }
