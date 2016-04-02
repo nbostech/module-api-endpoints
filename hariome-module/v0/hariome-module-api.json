@@ -13,13 +13,13 @@
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         }
     },
-    "host": "http://www.hariome.com/api/astrome/",
-    "basePath": "/v0/astrome",
+    "host": "http://www.hariome.com/",
+    "basePath": "/api",
     "schemes": [
         "http"
     ],
     "paths": {
-        "/member/profiles": {
+        "/v0/astrome/member/profiles": {
             "post": {
                 "tags": ["module:hariome.Profile"],
                 "summary": "Add a new profile to user",
@@ -129,7 +129,7 @@
                 }
             }
         },
-        "/faq": {
+        "/v0/astrome/faq": {
             "get": {
                 "tags": ["module:hariome.FAQ"],
                 "summary": "Finds all FAQ w.r.t to a particular Muhurtam, Q&A ",
@@ -170,7 +170,7 @@
                 }
             }
         },
-        "/stotras": {
+        "/v0/astrome/stotras": {
             "get": {
                 "tags": ["module:hariome.Stotras"],
                 "summary": "Finds all stotras/hymns serviced in application",
@@ -211,7 +211,7 @@
                 }
             }
         },
-        "/panchang": {
+        "/v0/astrome/panchang": {
             "get": {
                 "tags": ["module:hariome.Panchang"],
                 "summary": "Display panchang for a particular date",
@@ -245,7 +245,7 @@
                 }
             }
         },
-        "/horoscope": {
+        "/v0/astrome/horoscope": {
             "get": {
                 "tags": ["module:hariome.Horoscope"],
                 "summary": "Get horoscope  based on input",
