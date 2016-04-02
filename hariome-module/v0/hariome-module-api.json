@@ -22,7 +22,7 @@
         "/member/profiles": {
             "post": {
                 "tags": [
-                    "Profile"
+                    "module:hariome.Profile"
                 ],
                 "summary": "Add a new profile to user",
                 "description": "",
@@ -57,7 +57,7 @@
             },
             "put": {
                 "tags": [
-                    "Profile"
+                    "module:hariome.Profile"
                 ],
                 "summary": "Update an existing profile",
                 "description": "",
@@ -93,7 +93,7 @@
             },
             "get": {
                 "tags": [
-                    "Profile"
+                    "module:hariome.Profile"
                 ],
                 "summary": "Get list of profile for user based on user token",
                 "description": "",
@@ -138,7 +138,7 @@
         "/faq": {
             "get": {
                 "tags": [
-                    "FAQ"
+                    "module:hariome.FAQ"
                 ],
                 "summary": "Finds all FAQ w.r.t to a particular Muhurtam, Q&A ",
                 "description": "Get list of FAQ.",
@@ -181,7 +181,7 @@
         "/stotras": {
             "get": {
                 "tags": [
-                    "Stotras"
+                    "module:hariome.Stotras"
                 ],
                 "summary": "Finds all stotras/hymns serviced in application",
                 "description": "Get list of stotras.",
@@ -224,7 +224,7 @@
         "/panchang": {
             "get": {
                 "tags": [
-                    "Panchang"
+                    "module:hariome.Panchang"
                 ],
                 "summary": "Display panchang for a particular date",
                 "description": "Get a Pachang for a particular date, if no date is given, respond with current date panchang",
@@ -260,7 +260,7 @@
         "/horoscope": {
             "get": {
                 "tags": [
-                    "Horoscope"
+                    "module:hariome.Horoscope"
                 ],
                 "summary": "Get horoscope  based on input",
                 "description": "Get list of muhurtams with price.",
