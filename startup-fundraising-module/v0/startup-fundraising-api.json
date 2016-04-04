@@ -1,151 +1,219 @@
 {
-		"swagger": "2.0",
-		"info": {
-				"version": "0.0.0",
-				"title": "50k Network Startup Fundraising module"
-		},
-		"basePath": "/api",
-		"paths": {
-				"/startup-fundraising/v0/users/{user_type}": {
-						"get": {
-								"summary": "List of All `users` type Investors",
-								"tags": ["module:startup-fundraising"],
-								"parameters": [
-										
-										{
-												"in": "path",
-												"name": "user_type",
-												"description": "type (investors, startups, portfolio) of users that needs to be fetched",
-												"required": true,
-												"type": "string"
-										}
-								],
-								"responses": {
-										"200": {
-												"description": "Success"
-										}
-								}
-						}
-				},
-				"/startup-fundraising/v0/users/signup": {
-						"post": {
-								"summary": "Create New User.",
-								"tags": ["module:startup-fundraising"],
-								"parameters": [
-									 
-								],
-								"responses": {
-										"200": {
-												"description": "Success"
-										}
-								}
-						}
-				},
-				"/startup-fundraising/v0/users/{userId}": {
-						"get": {
-								"summary": "get User profile.",
-								"tags": ["module:startup-fundraising"],
-								"parameters": [
-									 
-										{
-												"in": "path",
-												"name": "userId",
-												"description": "ID of user that needs to be fetched",
-												"required": true,
-												"type": "integer"
-										}
-								],
-								"responses": {
-										"200": {
-												"description": "Success"
-										}
-								}
-						},
-						"put": {
-								"summary": "Update User profile.",
-								"tags": ["module:startup-fundraising"],
-								"parameters": [
-										{
-												"in": "path",
-												"name": "userId",
-												"description": "ID of user that needs to be fetched",
-												"required": true,
-												"type": "integer"
-										}
-								],
-								"responses": {
-										"200": {
-												"description": "Success"
-										}
-								}
-						}
-				},
-				"/startup-fundraising/v0/users/dealbank": {
-						"get": {
-								"summary": "All List of startups on 50k network.",
-								"tags": ["module:startup-fundraising"],
-								"parameters": [
-									 
-								],
-								"responses": {
-										"200": {
-												"description": "Success"
-										}
-								}
-						}
-				},
-				"/startup-fundraising/v0/users/funding_progress": {
-						"get": {
-								"summary": "All List of startups who have minimum funds on 50k network.",
-								"tags": ["module:startup-fundraising"],
-								"parameters": [
-								],
-								"responses": {
-										"200": {
-												"description": "Success"
-										}
-								}
-						}
-				},
-				"/startup-fundraising/v0/users/{userId}/add_to_favourite": {
-						"post": {
-								"summary": "Add a startup as favourite to an investor.",
-								"tags": ["module:startup-fundraising"],
-								"parameters": [
-										{
-												"in": "path",
-												"name": "userId",
-												"description": "ID of user that needs to be fetched",
-												"required": true,
-												"type": "integer"
-										}
-								],
-								"responses": {
-										"200": {
-												"description": "Success"
-										}
-								}
-						}
-				},
-				"/startup-fundraising/v0/users/{userId}/favourite_startups": {
-						"get": {
-								"summary": "List of all favourite startups of a Investor.",
-								"tags": ["module:startup-fundraising"],
-								"parameters": [
-										{
-												"in": "path",
-												"name": "userId",
-												"description": "ID of user that needs to be fetched",
-												"required": true,
-												"type": "integer"
-										}
-								],
-								"responses": {
-										"200": {
-												"description": "Success"
-										}
-								}
-						}
-				}    
-		}
+    "swagger": "2.0",
+    "info": {
+        "version": "0.0.0",
+        "title": "50k Network Startup Fundraising module"
+    },
+    "basePath": "/api",
+    "paths": {
+        "/startup-fundraising/v0/users": {
+            "get": {
+                "summary": "List of All `users` type Investors",
+                "tags": ["module:startup-fundraising"],
+                "parameters": [
+                    
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/startup-fundraising/v0/companies/list?{c_Type}": {
+            "get": {
+                "summary": "All List of companies in 50k network.",
+                "tags": ["module:startup-fundraising"],
+                "parameters": [
+                  {
+                        "in": "path",
+                        "name": "c_Type",
+                        "description": "Type(all/dealbank/fundin_progress) of company that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                   
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/startup-fundraising/v0/companies/signup": {
+            "post": {
+                "summary": "Create New Company.",
+                "tags": ["module:startup-fundraising"],
+                "parameters": [
+                   
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/startup-fundraising/v0/companies/signin": {
+            "post": {
+                "summary": "Login as Company.",
+                "tags": ["module:startup-fundraising"],
+                "parameters": [
+                   
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/startup-fundraising/v0/companies/{companyId}": {
+            "get": {
+                "summary": "get Company profile.",
+                "tags": ["module:startup-fundraising"],
+                "parameters": [
+                   
+                    {
+                        "in": "path",
+                        "name": "companyId",
+                        "description": "ID of company that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update Company profile.",
+                "tags": ["module:startup-fundraising"],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "companyId",
+                        "description": "ID of company that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/startup-fundraising/v0/users/signup": {
+            "post": {
+                "summary": "Create New User.",
+                "tags": ["module:startup-fundraising"],
+                "parameters": [
+                   
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/startup-fundraising/v0/users/signin": {
+            "post": {
+                "summary": "Login as User.",
+                "tags": ["module:startup-fundraising"],
+                "parameters": [
+                   
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/startup-fundraising/v0/users/{userId}": {
+            "get": {
+                "summary": "get User profile.",
+                "tags": ["module:startup-fundraising"],
+                "parameters": [
+                   
+                    {
+                        "in": "path",
+                        "name": "userId",
+                        "description": "ID of user that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update User profile.",
+                "tags": ["module:startup-fundraising"],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "userId",
+                        "description": "ID of user that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/startup-fundraising/v0/users/{userId}/add_to_favourite": {
+            "post": {
+                "summary": "Add a startup as favourite to an investor.",
+                "tags": ["module:startup-fundraising"],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "userId",
+                        "description": "ID of user that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/startup-fundraising/v0/users/{userId}/favourite_startups": {
+            "get": {
+                "summary": "List of all favourite companies of a Investor.",
+                "tags": ["module:startup-fundraising"],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "userId",
+                        "description": "ID of user that needs to be fetched",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        }    
+    }
 }
