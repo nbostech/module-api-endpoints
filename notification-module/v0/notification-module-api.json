@@ -1,0 +1,277 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a AstrOme Notification server.\n\nFor this sample, you can use the api key `special-key` to test the authorization filters\n",
+        "version": "1.0.0",
+        "title": "Push Notiifcation Server API",
+        "termsOfService": "http://www.nbos.in",
+        "contact": {
+            "name": "apiteam@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "http://www.nbos.in/api/notification/",
+    "basePath": "/v0/{tenantId}/notification",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/device": {
+            "post": {
+                "tags": [
+                    "UserDevice"
+                ],
+                "summary": "Add a new device to user",
+                "description": "This needs to be called as soon as device is installed.",
+                "operationId": "addDevice",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Profile object that needs to be added to the user",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Device"
+                        }
+                    }
+                ],
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "UserDevice"
+                ],
+                "summary": "UnSubscribe  Device for that user",
+                "description": "This needs to be called when app is uninstalled",
+                "operationId": "updateProfile",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Profile object that needs to be added to the store",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Device"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Profile not found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "UserDevice"
+                ],
+                "summary": "Get list of profile for user based on user token",
+                "description": "",
+                "operationId": "getProfiles",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "user_id",
+                        "description": "Get all devices registerd for a user.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Device"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Profile not found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                }
+            }
+        },
+        "/SinglePush": {
+            "post": {
+                "tags": [
+                    "SinglePush"
+                ],
+                "summary": "Add a new device to user",
+                "description": "Notify a user about new message across all devices. This will be sent asap without using any queuing job ",
+                "operationId": "addDevice",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "user_id",
+                        "description": "User for whom single notification needs to be sent.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "message",
+                        "description": "Payload message ",
+                        "required": false,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/TenantPush": {
+            "post": {
+                "tags": [
+                    "TenantPush"
+                ],
+                "summary": "Push notifications to all users",
+                "description": "This is sent through a job because all users of tenant needs to be notified ",
+                "operationId": "addDevice",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "user_id",
+                        "description": "User for whom single notification needs to be sent.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "message",
+                        "description": "Payload message ",
+                        "required": false,
+                        "type": "string"
+                    },
+                ],
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        }
+    },
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        } 
+    },
+    "definitions": {
+        "Device": {
+            "type": "object",
+            "required": [
+                "platform",
+                "device_id",
+                "user_id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "user_id": {
+                    "type": "string",
+                    "example": "mem:242342394",
+                    "description": "Unique member id given by Tenant"
+                },
+                "platform": {
+                    "type": "string",
+                    "example": "Ios/Android/BlackBerry/Windows"
+                },
+                "device_id": {
+                    "type": "string",
+                    "example": "Unique_Device_Id"
+                },
+                "status": {
+                    "type": "integer",
+                    "description": "Status active 1 or inactive 0"
+                }
+            }
+        },
+        "push": {
+            "type": "object",
+            "properties": {
+                "jobid": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "Scheduled Job Id"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of job"
+                }
+            }
+        }
+    }
+}
