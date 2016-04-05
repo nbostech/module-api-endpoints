@@ -39,9 +39,9 @@
 												"description": "Success"
 										}
 								}
-						}
-					"post": {
-								"summary": "Create an Event.",
+						},
+						"post": {
+								"summary": "Create new Event",
 								"tags": ["module:events"],
 								"security": [
                     {
@@ -56,24 +56,23 @@
 												"name": "tenantId",
 												"description": "ID of tenant",
 												"required": true,
-												"type": "integer",
-												"format": "int64"
+												"type": "integer"
 										},
 										{
-												"in": "formData",
+												"in": "forData",
 												"name": "eventDetails",
-												"description": "details of an event",
+												"description": "New event details",
 												"required": true,
 												"type": "array"
 										}
-										
 								],
 								"responses": {
 										"200": {
 												"description": "Success"
 										}
 								}
-						}	
+						}
+
 				},
 				"/events/v0/{tenantId}/events/{eventId}": {
 						"get": {
