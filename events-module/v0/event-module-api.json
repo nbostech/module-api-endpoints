@@ -16,7 +16,7 @@
 		"paths": {
 				"/events/v0/{tenantId}/events": {
 						"get": {
-								"summary": "List of all Events.",
+								"summary": "List of all Events in a tenant",
 								"tags": ["module:events"],
 								"security": [
                     {
@@ -29,7 +29,7 @@
 										{
 												"in": "path",
 												"name": "tenantId",
-												"description": "ID of tenant that needs to be fetche",
+												"description": "ID of tenant",
 												"required": true,
 												"type": "integer"
 										}
@@ -40,10 +40,8 @@
 										}
 								}
 						}
-				},
-				"/events/v0/{tenantId}/events/{eventId}": {
-						"get": {
-								"summary": "Get information about a specific event.",
+					"post": {
+								"summary": "Create an Event.",
 								"tags": ["module:events"],
 								"security": [
                     {
@@ -56,14 +54,50 @@
 										{
 												"in": "path",
 												"name": "tenantId",
-												"description": "ID of tenant that needs to be fetched",
+												"description": "ID of tenant",
+												"required": true,
+												"type": "integer",
+												"format": "int64"
+										},
+										{
+												"in": "formData",
+												"name": "eventDetails",
+												"description": "details of an event",
+												"required": true,
+												"type": "array"
+										}
+										
+								],
+								"responses": {
+										"200": {
+												"description": "Success"
+										}
+								}
+						}	
+				},
+				"/events/v0/{tenantId}/events/{eventId}": {
+						"get": {
+								"summary": "Get information about a specific event",
+								"tags": ["module:events"],
+								"security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
+								"parameters": [
+										{
+												"in": "path",
+												"name": "tenantId",
+												"description": "ID of tenant",
 												"required": true,
 												"type": "integer"
 										},
 										{
 												"in": "path",
 												"name": "eventId",
-												"description": "ID of event that needs to be fetched",
+												"description": "ID of event",
 												"required": true,
 												"type": "integer"
 										}
@@ -88,14 +122,14 @@
 										{
 												"in": "path",
 												"name": "tenantId",
-												"description": "ID of tenant that needs to be fetched",
+												"description": "ID of tenant",
 												"required": true,
 												"type": "integer"
 										},
 										{
 												"in": "path",
 												"name": "eventId",
-												"description": "ID of event that needs to be fetched",
+												"description": "ID of event that needs to be update",
 												"required": true,
 												"type": "integer"
 										}
@@ -107,35 +141,7 @@
 								}
 						}
 				},
-				"/events/v0/{tenantId}/events/new": {
-						"post": {
-								"summary": "Create an Event.",
-								"tags": ["module:events"],
-								"security": [
-                    {
-                        "Bearer": [
-
-                        ]
-                    }
-                ],
-								"parameters": [
-										{
-												"in": "path",
-												"name": "tenantId",
-												"description": "ID of tenant that needs to be fetched",
-												"required": true,
-												"type": "integer",
-												"format": "int64"
-										}
-								],
-								"responses": {
-										"200": {
-												"description": "Success"
-										}
-								}
-						}
-				},
-				"/events/v0/{tenantId}/events/{eventId}/attend": {
+				"/events/v0/{tenantId}/events/attend": {
 						"post": {
 								"summary": "Add rsvp as a investor.",
 								"tags": ["module:events"],
@@ -150,14 +156,21 @@
 										{
 												"in": "path",
 												"name": "tenantId",
-												"description": "ID of tenant that needs to be fetched",
+												"description": "ID of tenant",
 												"required": true,
 												"type": "integer"
 										},
 										{
-												"in": "path",
+												"in": "formData",
 												"name": "eventId",
-												"description": "ID of event that needs to be fetched",
+												"description": "ID of event",
+												"required": true,
+												"type": "integer"
+										},
+										{
+												"in": "formData",
+												"name": "userId",
+												"description": "ID of user",
 												"required": true,
 												"type": "integer"
 										}
@@ -169,9 +182,9 @@
 								}
 						}
 				},
-				"/events/v0/{tenantId}/events/{eventId}/attendencies": {
+				"/events/v0/{tenantId}/events/attendencies": {
 						"get": {
-								"summary": "List of All users who sent RSVP for an Event.",
+								"summary": "List of All users who sent RSVP for an Event",
 								"tags": ["module:events"],
 								"security": [
                     {
@@ -184,14 +197,14 @@
 										{
 												"in": "path",
 												"name": "tenantId",
-												"description": "ID of tenant that needs to be fetched",
+												"description": "ID of tenant",
 												"required": true,
 												"type": "integer"
 										},
 										{
-												"in": "path",
+												"in": "formData",
 												"name": "eventId",
-												"description": "ID of event that needs to be fetched",
+												"description": "ID of event",
 												"required": true,
 												"type": "integer"
 										}
