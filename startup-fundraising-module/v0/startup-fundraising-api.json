@@ -25,6 +25,7 @@
                         ]
                     }
                 ],
+
                 "parameters": [
                   {
                     "in": "path",
@@ -140,6 +141,84 @@
                         "in": "path",
                         "name": "companyId",
                         "description": "ID of company that needs to be update",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "produces": [
+                   "application/json"
+                ],                
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+         "/startup-fundraising/v0/companies/favourite": {
+            "get": {
+                "summary": "Get All favorite Companies of a user.",
+                "tags": ["module:startup-fundraising"],
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
+                "parameters": [
+                   
+                    {
+                        "in": "formData",
+                        "name": "userId",
+                        "description": "ID of user",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "produces": [
+                   "application/json"
+                ],                
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Add a company to user favourite list",
+                "tags": ["module:startup-fundraising"],
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "userId",
+                        "description": "ID of user",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "companyId",
+                        "description": "ID of company",
                         "required": true,
                         "type": "integer"
                     }
