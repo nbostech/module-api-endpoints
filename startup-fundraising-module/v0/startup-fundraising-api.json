@@ -5,74 +5,101 @@
         "title": "50k Network Startup Fundraising module"
     },
     "basePath": "/api",
+    "securityDefinitions":
+    {
+     "Bearer":{
+       "type": "apiKey",
+       "name": "Authorization",
+       "in": "header"
+     }
+    },   
     "paths": {
-        "/startup-fundraising/v0/users": {
+        "/startup-fundraising/v0/users/{userType}": {
             "get": {
-                "summary": "List of All `users` type Investors",
+                "summary": "List of All Users",
                 "tags": ["module:startup-fundraising"],
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
                 "parameters": [
+                  {
+                    "in": "path",
+                    "name": "userType",
+                    "description": "UserType to fetch",
+                    "type": "string",
+                    "required": true
+                  }
                     
+                ],
+                "produces": [
+                   "application/json"
                 ],
                 "responses": {
                     "200": {
                         "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             }
         },
-        "/startup-fundraising/v0/companies/list?{c_Type}": {
+        "/startup-fundraising/v0/companies/{companyType}": {
             "get": {
                 "summary": "All List of companies in 50k network.",
                 "tags": ["module:startup-fundraising"],
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
                 "parameters": [
                   {
-                        "in": "path",
-                        "name": "c_Type",
-                        "description": "Type(all/dealbank/fundin_progress) of company that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
-                    }
+                    "in": "path",
+                    "name": "companyType",
+                    "description": "Type of company that needs to be fetched",
+                    "required": true,
+                    "type": "string"
+                  }
                    
+                ],
+                "produces": [
+                   "application/json"
                 ],
                 "responses": {
                     "200": {
                         "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             }
         },
-        "/startup-fundraising/v0/companies/signup": {
-            "post": {
-                "summary": "Create New Company.",
-                "tags": ["module:startup-fundraising"],
-                "parameters": [
-                   
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    }
-                }
-            }
-        },
-        "/startup-fundraising/v0/companies/signin": {
-            "post": {
-                "summary": "Login as Company.",
-                "tags": ["module:startup-fundraising"],
-                "parameters": [
-                   
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    }
-                }
-            }
-        },
+
         "/startup-fundraising/v0/companies/{companyId}": {
             "get": {
                 "summary": "get Company profile.",
                 "tags": ["module:startup-fundraising"],
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
                 "parameters": [
                    
                     {
@@ -83,27 +110,52 @@
                         "type": "integer"
                     }
                 ],
+                "produces": [
+                   "application/json"
+                ],                
                 "responses": {
                     "200": {
                         "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             },
             "put": {
                 "summary": "Update Company profile.",
                 "tags": ["module:startup-fundraising"],
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
                 "parameters": [
                     {
                         "in": "path",
                         "name": "companyId",
-                        "description": "ID of company that needs to be fetched",
+                        "description": "ID of company that needs to be update",
                         "required": true,
                         "type": "integer"
                     }
                 ],
+                "produces": [
+                   "application/json"
+                ],                
                 "responses": {
                     "200": {
                         "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             }
@@ -112,12 +164,48 @@
             "post": {
                 "summary": "Create New User.",
                 "tags": ["module:startup-fundraising"],
-                "parameters": [
-                   
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
                 ],
+                "parameters": [
+                  {
+                    "name": "user_name",
+                    "in": "formData",
+                    "description": "username of user",
+                    "required": true,
+                    "type": "string"
+                  },
+                  {
+                    "name": "password",
+                    "in": "formData",
+                    "description": "password for user",
+                    "required": true,
+                    "type": "string"
+                  },
+                  {
+                    "name": "user_type",
+                    "in": "formData",
+                    "description": "type of user",
+                    "required": true,
+                    "type": "string"
+                  }
+                ],
+                "produces": [
+                   "application/json"
+                ],                
                 "responses": {
                     "200": {
                         "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             }
@@ -126,12 +214,49 @@
             "post": {
                 "summary": "Login as User.",
                 "tags": ["module:startup-fundraising"],
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
                 "parameters": [
+                     {
+                    "name": "user_name",
+                    "in": "formData",
+                    "description": "username of user",
+                    "required": true,
+                    "type": "string"
+                  },
+                  {
+                    "name": "password",
+                    "in": "formData",
+                    "description": "password for user",
+                    "required": true,
+                    "type": "string"
+                  },
+                  {
+                    "name": "user_type",
+                    "in": "formData",
+                    "description": "type of user",
+                    "required": true,
+                    "type": "string"
+                  }               
                    
                 ],
+                "produces": [
+                   "application/json"
+                ],                
                 "responses": {
                     "200": {
                         "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             }
@@ -140,6 +265,13 @@
             "get": {
                 "summary": "get User profile.",
                 "tags": ["module:startup-fundraising"],
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
                 "parameters": [
                    
                     {
@@ -150,15 +282,31 @@
                         "type": "integer"
                     }
                 ],
+                "produces": [
+                   "application/json"
+                ],                
                 "responses": {
                     "200": {
                         "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             },
             "put": {
                 "summary": "Update User profile.",
                 "tags": ["module:startup-fundraising"],
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
                 "parameters": [
                     {
                         "in": "path",
@@ -168,49 +316,18 @@
                         "type": "integer"
                     }
                 ],
+                "produces": [
+                   "application/json"
+                ],                
                 "responses": {
                     "200": {
                         "description": "Success"
-                    }
-                }
-            }
-        },
-        "/startup-fundraising/v0/users/{userId}/add_to_favourite": {
-            "post": {
-                "summary": "Add a startup as favourite to an investor.",
-                "tags": ["module:startup-fundraising"],
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "userId",
-                        "description": "ID of user that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    }
-                }
-            }
-        },
-        "/startup-fundraising/v0/users/{userId}/favourite_startups": {
-            "get": {
-                "summary": "List of all favourite companies of a Investor.",
-                "tags": ["module:startup-fundraising"],
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "userId",
-                        "description": "ID of user that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             }

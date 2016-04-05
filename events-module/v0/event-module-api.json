@@ -1,157 +1,207 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "version": "0.0.0",
-        "title": "Generic Event module"
-    },
-    "basePath": "/api",
-    "paths": {
-        "/events/v0/{tenantId}/events": {
-            "get": {
-                "summary": "List of all Events.",
-                "tags": ["module:events"],
-                "parameters": [
+		"swagger": "2.0",
+		"info": {
+				"version": "0.0.0",
+				"title": "Generic Event module"
+		},
+		"basePath": "/api",
+		"securityDefinitions":
+    {
+     "Bearer":{
+       "type": "apiKey",
+       "name": "Authorization",
+       "in": "header"
+     }
+    },   
+		"paths": {
+				"/events/v0/{tenantId}/events": {
+						"get": {
+								"summary": "List of all Events.",
+								"tags": ["module:events"],
+								"security": [
                     {
-                        "in": "path",
-                        "name": "tenantId",
-                        "description": "ID of tenant that needs to be fetche",
-                        "required": true,
-                        "type": "integer"
+                        "Bearer": [
+
+                        ]
                     }
                 ],
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    }
-                }
-            }
-        },
-        "/events/v0/{tenantId}/events/{eventId}": {
-            "get": {
-                "summary": "Get information about a specific event.",
-                "tags": ["module:events"],
-                "parameters": [
+								"parameters": [
+										{
+												"in": "path",
+												"name": "tenantId",
+												"description": "ID of tenant that needs to be fetche",
+												"required": true,
+												"type": "integer"
+										}
+								],
+								"responses": {
+										"200": {
+												"description": "Success"
+										}
+								}
+						}
+				},
+				"/events/v0/{tenantId}/events/{eventId}": {
+						"get": {
+								"summary": "Get information about a specific event.",
+								"tags": ["module:events"],
+								"security": [
                     {
-                        "in": "path",
-                        "name": "tenantId",
-                        "description": "ID of tenant that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
-                    },
-                    {
-                        "in": "path",
-                        "name": "eventId",
-                        "description": "ID of event that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
+                        "Bearer": [
+
+                        ]
                     }
                 ],
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    }
-                }
-            },
-            "put": {
-                "summary": "Update an Event.",
-                "tags": ["module:events"],
-                "parameters": [
+								"parameters": [
+										{
+												"in": "path",
+												"name": "tenantId",
+												"description": "ID of tenant that needs to be fetched",
+												"required": true,
+												"type": "integer"
+										},
+										{
+												"in": "path",
+												"name": "eventId",
+												"description": "ID of event that needs to be fetched",
+												"required": true,
+												"type": "integer"
+										}
+								],
+								"responses": {
+										"200": {
+												"description": "Success"
+										}
+								}
+						},
+						"put": {
+								"summary": "Update an Event.",
+								"tags": ["module:events"],
+								"security": [
                     {
-                        "in": "path",
-                        "name": "tenantId",
-                        "description": "ID of tenant that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
-                    },
-                    {
-                        "in": "path",
-                        "name": "eventId",
-                        "description": "ID of event that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
+                        "Bearer": [
+
+                        ]
                     }
                 ],
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    }
-                }
-            }
-        },
-        "/events/v0/{tenantId}/events/new": {
-            "post": {
-                "summary": "Create an Event.",
-                "tags": ["module:events"],
-                "parameters": [
+								"parameters": [
+										{
+												"in": "path",
+												"name": "tenantId",
+												"description": "ID of tenant that needs to be fetched",
+												"required": true,
+												"type": "integer"
+										},
+										{
+												"in": "path",
+												"name": "eventId",
+												"description": "ID of event that needs to be fetched",
+												"required": true,
+												"type": "integer"
+										}
+								],
+								"responses": {
+										"200": {
+												"description": "Success"
+										}
+								}
+						}
+				},
+				"/events/v0/{tenantId}/events/new": {
+						"post": {
+								"summary": "Create an Event.",
+								"tags": ["module:events"],
+								"security": [
                     {
-                        "in": "path",
-                        "name": "tenantId",
-                        "description": "ID of tenant that needs to be fetched",
-                        "required": true,
-                        "type": "integer",
-                        "format": "int64"
+                        "Bearer": [
+
+                        ]
                     }
                 ],
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    }
-                }
-            }
-        },
-        "/events/v0/{tenantId}/events/{eventId}/attend": {
-            "post": {
-                "summary": "Add rsvp as a investor.",
-                "tags": ["module:events"],
-                "parameters": [
+								"parameters": [
+										{
+												"in": "path",
+												"name": "tenantId",
+												"description": "ID of tenant that needs to be fetched",
+												"required": true,
+												"type": "integer",
+												"format": "int64"
+										}
+								],
+								"responses": {
+										"200": {
+												"description": "Success"
+										}
+								}
+						}
+				},
+				"/events/v0/{tenantId}/events/{eventId}/attend": {
+						"post": {
+								"summary": "Add rsvp as a investor.",
+								"tags": ["module:events"],
+								"security": [
                     {
-                        "in": "path",
-                        "name": "tenantId",
-                        "description": "ID of tenant that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
-                    },
-                    {
-                        "in": "path",
-                        "name": "eventId",
-                        "description": "ID of event that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
+                        "Bearer": [
+
+                        ]
                     }
                 ],
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    }
-                }
-            }
-        },
-        "/events/v0/{tenantId}/events/{eventId}/attendencies": {
-            "get": {
-                "summary": "List of All users who sent RSVP for an Event.",
-                "tags": ["module:events"],
-                "parameters": [
+								"parameters": [
+										{
+												"in": "path",
+												"name": "tenantId",
+												"description": "ID of tenant that needs to be fetched",
+												"required": true,
+												"type": "integer"
+										},
+										{
+												"in": "path",
+												"name": "eventId",
+												"description": "ID of event that needs to be fetched",
+												"required": true,
+												"type": "integer"
+										}
+								],
+								"responses": {
+										"200": {
+												"description": "Success"
+										}
+								}
+						}
+				},
+				"/events/v0/{tenantId}/events/{eventId}/attendencies": {
+						"get": {
+								"summary": "List of All users who sent RSVP for an Event.",
+								"tags": ["module:events"],
+								"security": [
                     {
-                        "in": "path",
-                        "name": "tenantId",
-                        "description": "ID of tenant that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
-                    },
-                    {
-                        "in": "path",
-                        "name": "eventId",
-                        "description": "ID of event that needs to be fetched",
-                        "required": true,
-                        "type": "integer"
+                        "Bearer": [
+
+                        ]
                     }
                 ],
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    }
-                }
-            }
-        }    
-    }
+								"parameters": [
+										{
+												"in": "path",
+												"name": "tenantId",
+												"description": "ID of tenant that needs to be fetched",
+												"required": true,
+												"type": "integer"
+										},
+										{
+												"in": "path",
+												"name": "eventId",
+												"description": "ID of event that needs to be fetched",
+												"required": true,
+												"type": "integer"
+										}
+								],
+								"responses": {
+										"200": {
+												"description": "Success"
+										}
+								}
+						}
+				}    
+		}
 }
