@@ -6,25 +6,25 @@
 		},
 		"basePath": "/api",
 		"securityDefinitions":
-    {
-     "Bearer":{
-       "type": "apiKey",
-       "name": "Authorization",
-       "in": "header"
-     }
-    },   
+		{
+		 "Bearer":{
+			 "type": "apiKey",
+			 "name": "Authorization",
+			 "in": "header"
+		 }
+		},   
 		"paths": {
 				"/events/v0/{tenantId}/events": {
 						"get": {
 								"summary": "List of all Events in a tenant",
 								"tags": ["module:events"],
 								"security": [
-                    {
-                        "Bearer": [
+										{
+												"Bearer": [
 
-                        ]
-                    }
-                ],
+												]
+										}
+								],
 								"parameters": [
 										{
 												"in": "path",
@@ -44,12 +44,12 @@
 								"summary": "Create new Event",
 								"tags": ["module:events"],
 								"security": [
-                    {
-                        "Bearer": [
+										{
+												"Bearer": [
 
-                        ]
-                    }
-                ],
+												]
+										}
+								],
 								"parameters": [
 										{
 												"in": "path",
@@ -79,12 +79,12 @@
 								"summary": "Get information about a specific event",
 								"tags": ["module:events"],
 								"security": [
-                    {
-                        "Bearer": [
+										{
+												"Bearer": [
 
-                        ]
-                    }
-                ],
+												]
+										}
+								],
 								"parameters": [
 										{
 												"in": "path",
@@ -111,12 +111,12 @@
 								"summary": "Update an Event.",
 								"tags": ["module:events"],
 								"security": [
-                    {
-                        "Bearer": [
+										{
+												"Bearer": [
 
-                        ]
-                    }
-                ],
+												]
+										}
+								],
 								"parameters": [
 										{
 												"in": "path",
@@ -145,12 +145,12 @@
 								"summary": "Add rsvp as a investor.",
 								"tags": ["module:events"],
 								"security": [
-                    {
-                        "Bearer": [
+										{
+												"Bearer": [
 
-                        ]
-                    }
-                ],
+												]
+										}
+								],
 								"parameters": [
 										{
 												"in": "path",
@@ -186,12 +186,12 @@
 								"summary": "List of All users who sent RSVP for an Event",
 								"tags": ["module:events"],
 								"security": [
-                    {
-                        "Bearer": [
+										{
+												"Bearer": [
 
-                        ]
-                    }
-                ],
+												]
+										}
+								],
 								"parameters": [
 										{
 												"in": "path",
