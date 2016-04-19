@@ -89,7 +89,7 @@
                 }
             }
         },
-        "/startup-fundraising/v0/companies/{userId}": {
+        "/startup-fundraising/v0/companies": {
             "get": {
                 "summary": "get List of Companies of a User.",
                 "tags": ["module:startup-fundraising"],
@@ -103,7 +103,7 @@
                 "parameters": [
                    
                     {
-                        "in": "path",
+                        "in": "formData",
                         "name": "userId",
                         "description": "ID of user to get all his related companies.",
                         "required": true,
@@ -124,10 +124,8 @@
                         "description": "Unauthorized"
                     }
                 }
-            }
-         },
+            },
 
-        "/startup-fundraising/v0/companies": {
             "post": {
                 "summary": "Create a Company for User.",
                 "tags": ["module:startup-fundraising"],
