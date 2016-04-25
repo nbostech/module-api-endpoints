@@ -90,42 +90,6 @@
             }
         },
         "/startup-fundraising/v0/companies": {
-            "get": {
-                "summary": "get List of Companies of a User.",
-                "tags": ["module:startup-fundraising"],
-                "security": [
-                    {
-                        "Bearer": [
-
-                        ]
-                    }
-                ],
-                "parameters": [
-                   
-                    {
-                        "in": "formData",
-                        "name": "userId",
-                        "description": "ID of user to get all his related companies.",
-                        "required": true,
-                        "type": "integer"
-                    }
-                ],
-                "produces": [
-                   "application/json"
-                ],                
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    }
-                }
-            },
-
             "post": {
                 "summary": "Create a Company for User.",
                 "tags": ["module:startup-fundraising"],
@@ -137,49 +101,7 @@
                     }
                 ],
                 "parameters": [
-                   
-                    {
-                        "in": "formData",
-                        "name": "userId",
-                        "description": "ID of user to get all his related companies.",
-                        "required": true,
-                        "type": "integer"
-                    }
-                ],
-                "produces": [
-                   "application/json"
-                ],                
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    }
-                }
-            },
-            "delete": {
-                "summary": "Delete a Company of a User.",
-                "tags": ["module:startup-fundraising"],
-                "security": [
-                    {
-                        "Bearer": [
-
-                        ]
-                    }
-                ],
-                "parameters": [
-                   
-                    {
-                        "in": "formData",
-                        "name": "userId",
-                        "description": "ID of user to delete his company.",
-                        "required": true,
-                        "type": "integer"
-                    }
+                  
                 ],
                 "produces": [
                    "application/json"
@@ -249,6 +171,42 @@
                         "in": "path",
                         "name": "companyId",
                         "description": "ID of company that needs to be update",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "produces": [
+                   "application/json"
+                ],                
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            },
+
+            "delete": {
+                "summary": "Delete a Company of a User.",
+                "tags": ["module:startup-fundraising"],
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
+                "parameters": [
+                   
+                    {
+                        "in": "path",
+                        "name": "CompanyId",
+                        "description": "ID of company to delete.",
                         "required": true,
                         "type": "integer"
                     }
