@@ -528,7 +528,8 @@
                     "in": "formData",
                     "name": "image_file",
                     "description": "Image File Content.",
-                    "required": true
+                    "required": true,
+                    "type": "string"
                 }
             ],
             "produces": [
