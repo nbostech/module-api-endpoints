@@ -518,7 +518,7 @@
                     "type": "integer"
                 },
                  {
-                    "in": "path",
+                    "in": "formData",
                     "name": "media_for",
                     "description": "Type of model like company, event.",
                     "required": true,
