@@ -239,14 +239,7 @@
                     }
                 ],
                 "parameters": [
-                   
-                    {
-                        "in": "formData",
-                        "name": "userId",
-                        "description": "ID of user",
-                        "required": true,
-                        "type": "integer"
-                    }
+
                 ],
                 "produces": [
                    "application/json"
@@ -274,13 +267,6 @@
                     }
                 ],
                 "parameters": [
-                    {
-                        "in": "formData",
-                        "name": "userId",
-                        "description": "ID of user",
-                        "required": true,
-                        "type": "integer"
-                    },
                     {
                         "in": "formData",
                         "name": "companyId",
@@ -315,13 +301,6 @@
                     }
                 ],
                 "parameters": [
-                    {
-                        "in": "formData",
-                        "name": "userId",
-                        "description": "ID of user",
-                        "required": true,
-                        "type": "integer"
-                    },
                     {
                         "in": "formData",
                         "name": "companyId",
@@ -517,6 +496,56 @@
                     }
                 }
             }
-        }    
+        }
+      "/startup-fundraising/v0/companies/{companyId}/media": {
+        "post": {
+            "summary": "Upload Company Picture.",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+               
+                {
+                    "in": "path",
+                    "name": "companyId",
+                    "description": "ID of company to upload picture.",
+                    "required": true,
+                    "type": "integer"
+                },
+                 {
+                    "in": "path",
+                    "name": "media_for",
+                    "description": "Type of model like company, event.",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "in": "formData",
+                    "name": "image_file",
+                    "description": "Image File Content.",
+                    "required": true
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+        },       
+      }      
     }
 }
