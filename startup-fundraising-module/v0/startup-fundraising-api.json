@@ -496,7 +496,7 @@
                     }
                 }
             }
-        }
+        },
       "/startup-fundraising/v0/companies/{companyId}/media": {
         "post": {
             "summary": "Upload Company Picture.",
