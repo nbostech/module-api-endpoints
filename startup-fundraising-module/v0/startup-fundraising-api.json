@@ -14,6 +14,38 @@
      }
     },   
     "paths": {
+        "/startup-fundraising/v0/about": {
+          "get": {
+                "summary": "About the Module",
+                "tags": ["module:startup-fundraising"],
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
+
+                "parameters": [
+                  
+                ],
+                "produces": [
+                   "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+
         "/startup-fundraising/v0/users/{userType}": {
             "get": {
                 "summary": "List of All Users",
