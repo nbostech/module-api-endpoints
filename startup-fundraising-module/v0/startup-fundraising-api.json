@@ -434,26 +434,12 @@
                 ],
                 "parameters": [
                      {
-                    "name": "user_name",
+                    "name": "uuid",
                     "in": "formData",
-                    "description": "username of user",
+                    "description": "uuid of IDN user",
                     "required": true,
                     "type": "string"
-                  },
-                  {
-                    "name": "password",
-                    "in": "formData",
-                    "description": "password for user",
-                    "required": true,
-                    "type": "string"
-                  },
-                  {
-                    "name": "user_type",
-                    "in": "formData",
-                    "description": "type of user",
-                    "required": true,
-                    "type": "string"
-                  }               
+                  }              
                    
                 ],
                 "produces": [
