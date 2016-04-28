@@ -46,7 +46,7 @@
             }
         },
 
-        "/startup-fundraising/v0/users/{userType}": {
+        "/startup-fundraising/v0/users/{user_type}": {
             "get": {
                 "summary": "List of All Users",
                 "tags": ["module:startup-fundraising"],
@@ -61,8 +61,8 @@
                 "parameters": [
                   {
                     "in": "path",
-                    "name": "userType",
-                    "description": "UserType to fetch",
+                    "name": "user_type",
+                    "description": "UserType to fetch.Example 'investor'",
                     "type": "string",
                     "required": true
                   }
@@ -84,7 +84,7 @@
                 }
             }
         },
-        "/startup-fundraising/v0/companies/{companyType}": {
+        "/startup-fundraising/v0/companies/{company_type}": {
             "get": {
                 "summary": "All List of companies in 50k network.",
                 "tags": ["module:startup-fundraising"],
@@ -98,7 +98,7 @@
                 "parameters": [
                   {
                     "in": "path",
-                    "name": "companyType",
+                    "name": "company_type",
                     "description": "Type of company that needs to be fetched",
                     "required": true,
                     "type": "string"
@@ -152,7 +152,7 @@
             }            
          },                    
 
-        "/startup-fundraising/v0/companies/{companyId}": {
+        "/startup-fundraising/v0/companies/{id}": {
             "get": {
                 "summary": "get Company profile.",
                 "tags": ["module:startup-fundraising"],
@@ -167,7 +167,7 @@
                    
                     {
                         "in": "path",
-                        "name": "companyId",
+                        "name": "id",
                         "description": "ID of company that needs to be fetched",
                         "required": true,
                         "type": "integer"
@@ -201,7 +201,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "companyId",
+                        "name": "id",
                         "description": "ID of company that needs to be update",
                         "required": true,
                         "type": "integer"
@@ -237,7 +237,7 @@
                    
                     {
                         "in": "path",
-                        "name": "CompanyId",
+                        "name": "id",
                         "description": "ID of company to delete.",
                         "required": true,
                         "type": "integer"
@@ -301,7 +301,7 @@
                 "parameters": [
                     {
                         "in": "formData",
-                        "name": "companyId",
+                        "name": "id",
                         "description": "ID of company",
                         "required": true,
                         "type": "integer"
@@ -335,7 +335,7 @@
                 "parameters": [
                     {
                         "in": "formData",
-                        "name": "companyId",
+                        "name": "id",
                         "description": "ID of company",
                         "required": true,
                         "type": "integer"
@@ -458,7 +458,7 @@
                 }
             }
         },
-        "/startup-fundraising/v0/users/{userId}": {
+        "/startup-fundraising/v0/users/{id}": {
             "get": {
                 "summary": "get User profile.",
                 "tags": ["module:startup-fundraising"],
@@ -473,7 +473,7 @@
                    
                     {
                         "in": "path",
-                        "name": "userId",
+                        "name": "id",
                         "description": "ID of user that needs to be fetched",
                         "required": true,
                         "type": "integer"
@@ -507,7 +507,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "userId",
+                        "name": "id",
                         "description": "ID of user that needs to be fetched",
                         "required": true,
                         "type": "integer"
@@ -529,7 +529,7 @@
                 }
             }
         },
-      "/startup-fundraising/v0/companies/{companyId}/media": {
+      "/startup-fundraising/v0/companies/{id}/media": {
         "post": {
             "summary": "Upload Company Picture.",
             "tags": ["module:startup-fundraising"],
@@ -544,7 +544,7 @@
                
                 {
                     "in": "path",
-                    "name": "companyId",
+                    "name": "id",
                     "description": "ID of company to upload picture.",
                     "required": true,
                     "type": "integer"
