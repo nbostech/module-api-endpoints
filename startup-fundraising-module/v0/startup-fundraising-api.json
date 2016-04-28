@@ -370,23 +370,37 @@
                 ],
                 "parameters": [
                   {
-                    "name": "user_name",
+                    "name": "uuid",
                     "in": "formData",
-                    "description": "username of user",
-                    "required": true,
-                    "type": "string"
-                  },
-                  {
-                    "name": "password",
-                    "in": "formData",
-                    "description": "password for user",
+                    "description": "uuid of IDN user",
                     "required": true,
                     "type": "string"
                   },
                   {
                     "name": "user_type",
                     "in": "formData",
-                    "description": "type of user",
+                    "description": "type of the user",
+                    "required": true,
+                    "type": "string"
+                  },
+                  {
+                    "name": "full_name",
+                    "in": "formData",
+                    "description": "full name of the user",
+                    "required": true,
+                    "type": "string"
+                  },
+                  {
+                    "name": "email",
+                    "in": "formData",
+                    "description": "Email of user",
+                    "required": true,
+                    "type": "string"
+                  },
+                  {
+                    "name": "contact_number",
+                    "in": "formData",
+                    "description": "Phone number of user",
                     "required": true,
                     "type": "string"
                   }
@@ -579,6 +593,99 @@
                 }
             }
         }       
-      }      
+      },
+      "startup-fundraising/v0/company_categories": {
+        "get": {
+            "summary": "Get List of company catogories",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+        }        
+
+      },
+    "startup-fundraising/v0/company_stages": {
+        "get": {
+            "summary": "Get List of company stages",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+        }        
+
+      },
+    "startup-fundraising/v0/currency_types": {
+        "get": {
+            "summary": "Get List of currency types",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+        }        
+
+      }        
     }
 }
