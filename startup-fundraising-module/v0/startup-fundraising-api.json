@@ -673,9 +673,9 @@
         }        
 
       },
-      "/startup-fundraising/v0/company/document/categories": {
+      "/startup-fundraising/v0/document/types": {
         "get": {
-            "summary": "Get List of company document categories",
+            "summary": "Get List of document categories",
             "tags": ["module:startup-fundraising"],
             "security": [
                 {
@@ -704,7 +704,7 @@
         }        
 
       },
-      "/startup-fundraising/v0/company/address/types": {
+      "/startup-fundraising/v0/address/types": {
         "get": {
             "summary": "Get List of adress types",
             "tags": ["module:startup-fundraising"],
@@ -734,7 +734,69 @@
             }
         }        
 
-      },      
+      },
+      "/startup-fundraising/v0/associate/types": {
+        "get": {
+            "summary": "Get List of associate types",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+        }        
+
+      },
+       "/startup-fundraising/v0/company/description/types": {
+        "get": {
+            "summary": "Get List of company summary types",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+        }        
+
+      },                  
       "/startup-fundraising/v0/companies/{id}/team": {
         "get": {
             "summary": "Get List of company team members",
