@@ -580,7 +580,7 @@
             }
         }       
       },
-      "/startup-fundraising/v0/company_categories": {
+      "/startup-fundraising/v0/company/categories": {
         "get": {
             "summary": "Get List of company catogories",
             "tags": ["module:startup-fundraising"],
@@ -611,7 +611,7 @@
         }        
 
       },
-    "/startup-fundraising/v0/company_stages": {
+    "/startup-fundraising/v0/company/stages": {
         "get": {
             "summary": "Get List of company stages",
             "tags": ["module:startup-fundraising"],
@@ -642,7 +642,7 @@
         }        
 
       },
-    "/startup-fundraising/v0/currency_types": {
+    "/startup-fundraising/v0/currency/types": {
         "get": {
             "summary": "Get List of currency types",
             "tags": ["module:startup-fundraising"],
@@ -673,7 +673,7 @@
         }        
 
       },
-      "/startup-fundraising/v0/company_document_categories": {
+      "/startup-fundraising/v0/company/document/categories": {
         "get": {
             "summary": "Get List of company document categories",
             "tags": ["module:startup-fundraising"],
@@ -704,6 +704,37 @@
         }        
 
       },
+      "/startup-fundraising/v0/company/address/types": {
+        "get": {
+            "summary": "Get List of adress types",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+        }        
+
+      },      
       "/startup-fundraising/v0/companies/{id}/team": {
         "get": {
             "summary": "Get List of company team members",
