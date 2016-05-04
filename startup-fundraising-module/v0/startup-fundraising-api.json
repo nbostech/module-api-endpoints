@@ -188,8 +188,9 @@
 										}
 								}
 						},
-						"put": {
-								"summary": "Update Company profile.",
+
+						"delete": {
+								"summary": "Delete a Company of a User.",
 								"tags": ["module:startup-fundraising"],
 								"security": [
 										{
@@ -199,10 +200,11 @@
 										}
 								],
 								"parameters": [
+									 
 										{
 												"in": "path",
 												"name": "id",
-												"description": "ID of company that needs to be update",
+												"description": "ID of company to delete.",
 												"required": true,
 												"type": "integer"
 										}
@@ -221,10 +223,11 @@
 												"description": "Unauthorized"
 										}
 								}
-						},
-
-						"delete": {
-								"summary": "Delete a Company of a User.",
+						}
+				},
+				"/startup-fundraising/v0/companies/{id}/profile": {
+         "put": {
+								"summary": "Update Company profile.",
 								"tags": ["module:startup-fundraising"],
 								"security": [
 										{
@@ -234,11 +237,10 @@
 										}
 								],
 								"parameters": [
-									 
 										{
 												"in": "path",
 												"name": "id",
-												"description": "ID of company to delete.",
+												"description": "ID of company that needs to be update",
 												"required": true,
 												"type": "integer"
 										}
@@ -356,6 +358,7 @@
 										}
 								}
 						}
+				}
 				},
 				"/startup-fundraising/v0/users/signup": {
 						"post": {
