@@ -261,7 +261,7 @@
 								}
 						}
 				},
-				 "/startup-fundraising/v0/companies/favorites": {
+				"/startup-fundraising/v0/companies/favorites": {
 						"get": {
 								"summary": "Get All favorite Companies of a user.",
 								"tags": ["module:startup-fundraising"],
@@ -358,7 +358,6 @@
 										}
 								}
 						}
-				}
 				},
 				"/startup-fundraising/v0/users/signup": {
 						"post": {
