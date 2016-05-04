@@ -824,7 +824,7 @@
             }
           }        
         },                  
-        "/startup-fundraising/v0/companies/{id}/team": {
+        "/startup-fundraising/v0/companies/{id}/associates": {
           "get": {
             "summary": "Get List of company team members",
             "tags": ["module:startup-fundraising"],
@@ -929,7 +929,50 @@
                     "description": "Unauthorized"
                 }
             }
-          },
+          }        
+        },
+        "startup-fundraising/v0/associates/{id}": {
+          "get": {
+            "summary": "Get an associate of a company",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+               {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of Associate",
+                    "required": true,
+                    "type": "integer"
+                },
+                {
+                    "in": "formData",
+                    "name": "member_id",
+                    "description": "Id of the team member",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          },          
           "put": {
             "summary": "Update team member of a company",
             "tags": ["module:startup-fundraising"],
@@ -1047,7 +1090,7 @@
                     "description": "Unauthorized"
                 }
             }
-          }        
+          }
         }
     }                          
 }
