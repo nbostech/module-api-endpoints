@@ -13,17 +13,15 @@
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         }
     },
-    "host": "http://www.hariome.com/api/astrome/",
-    "basePath": "/v0/astrome",
+    "host": "http://www.hariome.com/",
+    "basePath": "/api",
     "schemes": [
         "http"
     ],
     "paths": {
-        "/member/profiles": {
+        "/hariome/v0/member/profiles": {
             "post": {
-                "tags": [
-                    "Profile"
-                ],
+                "tags": ["module:hariome.Profile"],
                 "summary": "Add a new profile to user",
                 "description": "",
                 "operationId": "addProfile",
@@ -56,9 +54,7 @@
                 ]
             },
             "put": {
-                "tags": [
-                    "Profile"
-                ],
+                "tags": ["module:hariome.Profile"],
                 "summary": "Update an existing profile",
                 "description": "",
                 "operationId": "updateProfile",
@@ -92,9 +88,7 @@
                 }
             },
             "get": {
-                "tags": [
-                    "Profile"
-                ],
+                "tags": ["module:hariome.Profile"],
                 "summary": "Get list of profile for user based on user token",
                 "description": "",
                 "operationId": "getProfiles",
@@ -135,11 +129,9 @@
                 }
             }
         },
-        "/faq": {
+        "/hariome/v0/faq": {
             "get": {
-                "tags": [
-                    "FAQ"
-                ],
+                "tags": ["module:hariome.FAQ"],
                 "summary": "Finds all FAQ w.r.t to a particular Muhurtam, Q&A ",
                 "description": "Get list of FAQ.",
                 "operationId": "listMuhurtams",
@@ -178,11 +170,9 @@
                 }
             }
         },
-        "/stotras": {
+        "/hariome/v0/stotras": {
             "get": {
-                "tags": [
-                    "Stotras"
-                ],
+                "tags": ["module:hariome.Stotras"],
                 "summary": "Finds all stotras/hymns serviced in application",
                 "description": "Get list of stotras.",
                 "operationId": "listMuhurtams",
@@ -221,11 +211,9 @@
                 }
             }
         },
-        "/panchang": {
+        "/hariome/v0/panchang": {
             "get": {
-                "tags": [
-                    "Panchang"
-                ],
+                "tags": ["module:hariome.Panchang"],
                 "summary": "Display panchang for a particular date",
                 "description": "Get a Pachang for a particular date, if no date is given, respond with current date panchang",
                 "operationId": "listMuhurtams",
@@ -257,11 +245,9 @@
                 }
             }
         },
-        "/horoscope": {
+        "/hariome/v0/horoscope": {
             "get": {
-                "tags": [
-                    "Horoscope"
-                ],
+                "tags": ["module:hariome.Horoscope"],
                 "summary": "Get horoscope  based on input",
                 "description": "Get list of muhurtams with price.",
                 "operationId": "listMuhurtams",
