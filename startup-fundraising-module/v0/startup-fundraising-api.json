@@ -270,6 +270,13 @@
                     }
                 ],
                 "parameters": [
+                   {
+                        "in": "path",
+                        "name": "favorite_type",
+                        "description": "Type of favorite.Example company",
+                        "required": true,
+                        "type": "integer"
+                    }
 
                 ],
                 "produces": [
@@ -307,7 +314,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "fvorite_type",
+                        "name": "favorite_type",
                         "description": "Type of favorite.Example company",
                         "required": true,
                         "type": "integer"
@@ -348,7 +355,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "fvorite_type",
+                        "name": "favorite_type",
                         "description": "Type of favorite.Example company",
                         "required": true,
                         "type": "integer"
