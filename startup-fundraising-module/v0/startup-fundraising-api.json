@@ -258,7 +258,7 @@
                 }
           }
         },
-        "/startup-fundraising/v0/company/favorites": {
+        "/startup-fundraising/v0/user/favorites": {
             "get": {
                 "summary": "Get All favorite Companies of a user.",
                 "tags": ["module:startup-fundraising"],
@@ -299,9 +299,16 @@
                 ],
                 "parameters": [
                     {
-                        "in": "formData",
+                        "in": "path",
                         "name": "id",
                         "description": "ID of company",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "path",
+                        "name": "fvorite_type",
+                        "description": "Type of favorite.Example company",
                         "required": true,
                         "type": "integer"
                     }
@@ -333,9 +340,16 @@
                 ],
                 "parameters": [
                     {
-                        "in": "formData",
+                        "in": "path",
                         "name": "id",
                         "description": "ID of company",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "path",
+                        "name": "fvorite_type",
+                        "description": "Type of favorite.Example company",
                         "required": true,
                         "type": "integer"
                     }
