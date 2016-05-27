@@ -258,7 +258,7 @@
                 }
           }
         },
-        "/startup-fundraising/v0/companies/favorites": {
+        "/startup-fundraising/v0/user/favorites": {
             "get": {
                 "summary": "Get All favorite Companies of a user.",
                 "tags": ["module:startup-fundraising"],
@@ -270,6 +270,13 @@
                     }
                 ],
                 "parameters": [
+                   {
+                        "in": "path",
+                        "name": "favorite_type",
+                        "description": "Type of favorite.Example company",
+                        "required": true,
+                        "type": "integer"
+                    }
 
                 ],
                 "produces": [
@@ -299,9 +306,16 @@
                 ],
                 "parameters": [
                     {
-                        "in": "formData",
+                        "in": "path",
                         "name": "id",
                         "description": "ID of company",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "path",
+                        "name": "favorite_type",
+                        "description": "Type of favorite.Example company",
                         "required": true,
                         "type": "integer"
                     }
@@ -333,9 +347,16 @@
                 ],
                 "parameters": [
                     {
-                        "in": "formData",
+                        "in": "path",
                         "name": "id",
                         "description": "ID of company",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "path",
+                        "name": "favorite_type",
+                        "description": "Type of favorite.Example company",
                         "required": true,
                         "type": "integer"
                     }
@@ -797,6 +818,66 @@
         "/startup-fundraising/v0/company/description/types": {
           "get": {
             "summary": "Get List of company summary types",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          }        
+        },
+        "/startup-fundraising/v0/domain_expertises/types": {
+          "get": {
+            "summary": "Get List of domain expertises types",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          }        
+        },
+        "/startup-fundraising/v0/tenantInfo": {
+          "get": {
+            "summary": "Get the tenant Id of a token",
             "tags": ["module:startup-fundraising"],
             "security": [
                 {
