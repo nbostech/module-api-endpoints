@@ -844,6 +844,66 @@
                 }
             }
           }        
+        },
+        "/startup-fundraising/v0/domain_expertises/types": {
+          "get": {
+            "summary": "Get List of domain expertises types",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          }        
+        },
+        "/startup-fundraising/v0/token_details": {
+          "get": {
+            "summary": "Get the access token details",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          }        
         },                  
         "/startup-fundraising/v0/companies/{id}/associates": {
           "get": {
