@@ -12,7 +12,9 @@
 				"246135fb-05bf-6dd5-ca3c-ddc29129de5d",
 				"c345d842-1448-5e86-cab0-78d30fd3542d",
 				"626d4bf0-b099-d50f-ea06-0379381a835d",
-				"16a569aa-a621-a50d-63b2-5937e114a5f5"
+				"16a569aa-a621-a50d-63b2-5937e114a5f5",
+				"f3ee8e64-bc02-06ee-bfe0-98108923ca65",
+				"c92ca929-22c6-e239-6efd-7b0849ee6f86"
 			],
 			"owner": "509140",
 			"collectionId": "be558a3f-d56f-bb51-2bea-4547b1c9cd6d"
@@ -57,13 +59,12 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1462426860546,
+			"time": 1464074208682,
 			"name": "Register Device",
 			"description": "",
 			"collectionId": "d080d2a7-f8da-fdaa-5048-de197fe23afe",
 			"responses": [],
-			"folder": "8afeebf2-ba3a-2be4-8c32-4c70efc66764",
-			"rawModeData": "{\n    \"deviceType\": \"ios\",\n    \"deviceToken\": \"1210028c4a71dcdfd803f82f01c82b6596c7f1996cc7f22047c85478a30d25a4\",\n    \"email\":\"mem:234234\",\n    \"user_id\":\"mem:234234\",\n    \"channels\": [\"hariome:main\",\"hariome:astrology\", \"hariome:panchang\", \"hariome:order\"]\n}"
+			"rawModeData": "{\n    \"deviceType\": \"ios\",\n    \"deviceToken\": \"1210028c4a71dcdfd803f82f01c82b6596c7f1996cc7f22047c85478a30d25a4\",\n    \"email\":\"mem:234234\",\n    \"user_id\":\"mem:sharief\",\n    \"channels\": [\"hariome:main\",\"hariome:astrology\", \"hariome:panchang\", \"hariome:order\"]\n}"
 		},
 		{
 			"id": "626d4bf0-b099-d50f-ea06-0379381a835d",
@@ -78,13 +79,12 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1462771265822,
+			"time": 1464158326226,
 			"name": "Send to one user",
 			"description": "",
 			"collectionId": "d080d2a7-f8da-fdaa-5048-de197fe23afe",
 			"responses": [],
-			"folder": "8afeebf2-ba3a-2be4-8c32-4c70efc66764",
-			"rawModeData": "{\n  \"user_id\": \"mem:sharief\",\n  \"data\": {\"alert\":\"Parse PHP sdk\",\"title\":\"Only to Sharief\",\"route\":\"orderid|234234234\" }\n}"
+			"rawModeData": "{\n  \"user_id\": \"mem:sharief\",\n  \"data\": {\"alert\":\"your order has been updated\",\"title\":\"order stats\",\"route\":\"orderid|234234234\" }\n}"
 		},
 		{
 			"id": "c345d842-1448-5e86-cab0-78d30fd3542d",
@@ -106,6 +106,46 @@
 			"responses": [],
 			"folder": "8afeebf2-ba3a-2be4-8c32-4c70efc66764",
 			"rawModeData": "{\n    \"deviceToken\": \"1ebc3e9f747a6ebb9c4c067efb7e4b9452ce4e6d84fc18dbc57323f3a84953f3\"\n}"
+		},
+		{
+			"id": "c92ca929-22c6-e239-6efd-7b0849ee6f86",
+			"headers": "Content-Type: application/json\nAuthorization: Bearer {{access_token}}\n",
+			"url": "http://notifications.qa.nbos.in/notifications/v0/TNT:hariome/pushLog",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1464074103059,
+			"name": "Log data",
+			"description": "",
+			"collectionId": "d080d2a7-f8da-fdaa-5048-de197fe23afe",
+			"responses": [],
+			"rawModeData": "{\n  \"user_id\": \"mem:sharief\",\n  \"from_date\":\"2016-05-05 12:12:12\"\n}"
+		},
+		{
+			"id": "f3ee8e64-bc02-06ee-bfe0-98108923ca65",
+			"headers": "Content-Type: application/json\nAuthorization: Bearer {{access_token}}\n",
+			"url": "http://notifications.qa.nbos.in/notifications/v0/TNT:hariome/sendAll",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1464004684656,
+			"name": "Send All Chanels",
+			"description": "",
+			"collectionId": "d080d2a7-f8da-fdaa-5048-de197fe23afe",
+			"responses": [],
+			"rawModeData": "{\n  \"channels\": [\"hariome:main\",\"hariome:astrology\", \"hariome:panchang\", \"hariome:order\"],\n  \"data\": {\n    \"alert\": \"Show pachang\",\n    \"title\": \"Today's panchang\",\n    \"route\": \"orderid|234234234\"\n  }\n}"
 		}
 	]
 }
