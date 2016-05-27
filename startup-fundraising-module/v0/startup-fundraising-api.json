@@ -875,9 +875,9 @@
             }
           }        
         },
-        "/startup-fundraising/v0/token_details": {
+        "/startup-fundraising/v0/tenantInfo": {
           "get": {
-            "summary": "Get the access token details",
+            "summary": "Get the tenant Id of a token",
             "tags": ["module:startup-fundraising"],
             "security": [
                 {
