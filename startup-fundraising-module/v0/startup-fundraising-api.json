@@ -1151,6 +1151,201 @@
                 }
             }
           }
+        },
+        "/startup-fundraising/v0/companies/{id}/fundingRounds": {
+          "get": {
+            "summary": "Get List of funding rounds of a company",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of company",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          },
+          "post": {
+            "summary": "Create a fundinground for a comapny",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of company",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          }        
+        },
+        "/startup-fundraising/v0/companies/{company_id}/fundingRounds/{id}": {
+          "get": {
+            "summary": "Get List of funding rounds of a company",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "company_id",
+                    "description": "ID of company",
+                    "required": true,
+                    "type": "integer"
+              },
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of fundinground",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          },
+          "put": {
+            "summary": "update a fundinground for a comapny",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "company_id",
+                    "description": "ID of company",
+                    "required": true,
+                    "type": "integer"
+              },
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of fundinground",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          },
+          "delete": {
+            "summary": "delete a fundinground for a comapny",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "company_id",
+                    "description": "ID of company",
+                    "required": true,
+                    "type": "integer"
+              },
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of fundinground",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          }                  
         }
     }                          
 }
