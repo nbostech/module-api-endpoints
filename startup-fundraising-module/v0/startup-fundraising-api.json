@@ -1222,7 +1222,7 @@
             }
           }        
         },
-        "/startup-fundraising/v0/companies/{company_id}/fundingRounds/{id}": {
+        "/startup-fundraising/v0/fundingRounds/{id}": {
           "get": {
             "summary": "Get List of funding rounds of a company",
             "tags": ["module:startup-fundraising"],
@@ -1234,13 +1234,6 @@
                 }
             ],
             "parameters": [
-              {
-                    "in": "path",
-                    "name": "company_id",
-                    "description": "ID of company",
-                    "required": true,
-                    "type": "integer"
-              },
               {
                     "in": "path",
                     "name": "id",
@@ -1277,13 +1270,6 @@
             "parameters": [
               {
                     "in": "path",
-                    "name": "company_id",
-                    "description": "ID of company",
-                    "required": true,
-                    "type": "integer"
-              },
-              {
-                    "in": "path",
                     "name": "id",
                     "description": "ID of fundinground",
                     "required": true,
@@ -1316,13 +1302,6 @@
                 }
             ],
             "parameters": [
-              {
-                    "in": "path",
-                    "name": "company_id",
-                    "description": "ID of company",
-                    "required": true,
-                    "type": "integer"
-              },
               {
                     "in": "path",
                     "name": "id",
