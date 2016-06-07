@@ -48,7 +48,7 @@
                 }
             }
         },
-        "/startup-fundraising/v0/users/{user_type}": {
+        "/startup-fundraising/v0/users": {
             "get": {
                 "summary": "List of All Users",
                 "tags": ["module:startup-fundraising"],
@@ -86,7 +86,7 @@
                 }
             }
         },
-        "/startup-fundraising/v0/companies/{company_type}": {
+        "/startup-fundraising/v0/companies": {
             "get": {
                 "summary": "All List of companies in 50k network.",
                 "tags": ["module:startup-fundraising"],
@@ -309,7 +309,7 @@
                 ],
                 "parameters": [
                     {
-                        "in": "[ath",
+                        "in": "query",
                         "name": "id",
                         "description": "ID of company",
                         "required": true,
@@ -350,7 +350,7 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
+                        "in": "query",
                         "name": "id",
                         "description": "ID of company",
                         "required": true,
