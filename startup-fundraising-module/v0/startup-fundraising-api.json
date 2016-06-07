@@ -6,6 +6,8 @@
     },
     "host": "fundr.api.qa1.nbos.in",
     "basePath": "/api",
+    "schemes": [
+    "http"],
     "securityDefinitions":
     {
      "Bearer":{
