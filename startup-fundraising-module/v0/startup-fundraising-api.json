@@ -878,6 +878,36 @@
             }
           }        
         },
+        "/startup-fundraising/v0/funding_rounds/types": {
+          "get": {
+            "summary": "Get List of funding round types",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          }        
+        },
         "/startup-fundraising/v0/tenantInfo": {
           "get": {
             "summary": "Get the tenant Id of a token",
