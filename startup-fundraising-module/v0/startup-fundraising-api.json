@@ -75,12 +75,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
-                        "schema": {
-                            "type": "json",
-                            "items": {
-                                "$ref": "#/definitions/User"
-                            }
+                        "description": "Success"
                         }
                     },
                     "400": {
