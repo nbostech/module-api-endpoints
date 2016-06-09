@@ -1045,7 +1045,7 @@
             }
           }        
         },
-        "startup-fundraising/v0/associates/{id}": {
+        "/startup-fundraising/v0/associates/{id}": {
           "get": {
             "summary": "Get an associate of a company",
             "tags": ["module:startup-fundraising"],
@@ -1429,6 +1429,110 @@
             }
           }
 
-        }  
+        },
+        "/startup-fundraising/v0/investmentCommitments/{id}": {
+          "get": {
+            "summary": "Get an invesment commitment",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of investment commitment",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          },
+          "put": {
+            "summary": "update investment commitment",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of Investment Commitment",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          },
+          "delete": {
+            "summary": "delete Investment Commitment",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of Investment Commitment",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          }                  
+        }   
     }                          
 }
