@@ -1358,6 +1358,77 @@
                 }
             }
           }                  
-        }
+        },
+        "/startup-fundraising/v0/funding_rounds/{id}/investment_commitments": {
+          "get": {
+            "summary": "Get List of user investments of a company funding round",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of funding round",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          },
+          "post": {
+            "summary": "Create an investment on a funding round of a company",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of funding round",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          }
+
+        }  
     }                          
 }
