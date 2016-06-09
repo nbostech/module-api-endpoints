@@ -87,43 +87,6 @@
             }
         },
         "/startup-fundraising/v0/companies": {
-            "get": {
-                "summary": "All List of companies in 50k network.",
-                "tags": ["module:startup-fundraising"],
-                "security": [
-                    {
-                        "Bearer": [
-
-                        ]
-                    }
-                ],
-                "parameters": [
-                  {
-                    "in": "query",
-                    "name": "company_type",
-                    "description": "Type of company that needs to be fetched",
-                    "required": true,
-                    "type": "string"
-                  }
-                   
-                ],
-                "produces": [
-                   "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    }
-                }
-            }
-        },
-        "/startup-fundraising/v0/companies": {
             "post": {
                 "summary": "Create a Company for User.",
                 "tags": ["module:startup-fundraising"],
@@ -151,7 +114,42 @@
                         "description": "Unauthorized"
                     }
                 }
-            }            
+            },
+           "get": {
+                "summary": "All List of companies in 50k network.",
+                "tags": ["module:startup-fundraising"],
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
+                "parameters": [
+                  {
+                    "in": "query",
+                    "name": "company_type",
+                    "description": "Type of company that needs to be fetched 'deal_bank', 'funding_progress'",
+                    "required": true,
+                    "type": "string"
+                  }
+                   
+                ],
+                "produces": [
+                   "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }             
          },                    
         "/startup-fundraising/v0/companies/{id}": {
             "get": {
