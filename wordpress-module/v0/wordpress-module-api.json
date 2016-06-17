@@ -4,12 +4,9 @@
         "description": "This is a NBSO Wordpress server",
         "version": "1.0.0",
         "title": "Wordpress API",
-        "termsOfService": "http://wavelabs.in",
-        "contact": {
-            "name": "support@nbos.in"
-        }
+        "termsOfService": "http://wavelabs.in"
     },
-    "host": "http://wavelabs.in/",
+    "host": "wavelabs.in",
     "basePath": "/wp-json",
     "schemes": [
         "http"
@@ -158,7 +155,7 @@
                 }
             }
         },
-        "/wp/v2/posts/{postID}": {
+        "/wp/v2/posts/postID": {
             "get": {
                 "tags": ["module:wordpress.post"],
                 "summary": "Get single Post",
@@ -167,21 +164,10 @@
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [
-                  {
-                    "in": "body",
-                    "name": "postID",
-                    "required": false,
-                    "schema": {
-                      "type": "string"
-                    }
-                  }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
-                        "description": "successful operation",
-                        
-                    },
+                        "description": "successful operation"                    },
                     "400": {
                         "description": "Invalid status value"
                     }
