@@ -4,7 +4,10 @@
         "version": "0.0.0",
         "title": "50k Network Startup Fundraising module"
     },
+    "host": "fundr.api.qa1.nbos.in",
     "basePath": "/api",
+    "schemes": [
+    "http"],
     "securityDefinitions":
     {
      "Bearer":{
@@ -45,7 +48,7 @@
                 }
             }
         },
-        "/startup-fundraising/v0/users/{user_type}": {
+        "/startup-fundraising/v0/users": {
             "get": {
                 "summary": "List of All Users",
                 "tags": ["module:startup-fundraising"],
@@ -59,50 +62,13 @@
 
                 "parameters": [
                   {
-                    "in": "path",
+                    "in": "query",
                     "name": "user_type",
                     "description": "UserType to fetch.Example 'investor'",
                     "type": "string",
                     "required": true
                   }
                     
-                ],
-                "produces": [
-                   "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    }
-                }
-            }
-        },
-        "/startup-fundraising/v0/companies/{company_type}": {
-            "get": {
-                "summary": "All List of companies in 50k network.",
-                "tags": ["module:startup-fundraising"],
-                "security": [
-                    {
-                        "Bearer": [
-
-                        ]
-                    }
-                ],
-                "parameters": [
-                  {
-                    "in": "path",
-                    "name": "company_type",
-                    "description": "Type of company that needs to be fetched",
-                    "required": true,
-                    "type": "string"
-                  }
-                   
                 ],
                 "produces": [
                    "application/json"
@@ -148,7 +114,42 @@
                         "description": "Unauthorized"
                     }
                 }
-            }            
+            },
+           "get": {
+                "summary": "All List of companies in 50k network.",
+                "tags": ["module:startup-fundraising"],
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
+                "parameters": [
+                  {
+                    "in": "query",
+                    "name": "company_type",
+                    "description": "Type of company that needs to be fetched 'deal_bank', 'funding_progress'",
+                    "required": true,
+                    "type": "string"
+                  }
+                   
+                ],
+                "produces": [
+                   "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }             
          },                    
         "/startup-fundraising/v0/companies/{id}": {
             "get": {
@@ -271,7 +272,7 @@
                 ],
                 "parameters": [
                    {
-                        "in": "path",
+                        "in": "query",
                         "name": "favorite_type",
                         "description": "Type of favorite.Example company",
                         "required": true,
@@ -306,14 +307,14 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
+                        "in": "query",
                         "name": "id",
                         "description": "ID of company",
                         "required": true,
                         "type": "integer"
                     },
                     {
-                        "in": "path",
+                        "in": "query",
                         "name": "favorite_type",
                         "description": "Type of favorite.Example company",
                         "required": true,
@@ -347,14 +348,14 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
+                        "in": "query",
                         "name": "id",
                         "description": "ID of company",
                         "required": true,
                         "type": "integer"
                     },
                     {
-                        "in": "path",
+                        "in": "query",
                         "name": "favorite_type",
                         "description": "Type of favorite.Example company",
                         "required": true,
@@ -391,35 +392,35 @@
                 "parameters": [
                   {
                     "name": "uuid",
-                    "in": "formData",
+                    "in": "body",
                     "description": "uuid of IDN user",
                     "required": true,
                     "type": "string"
                   },
                   {
                     "name": "user_type",
-                    "in": "formData",
+                    "in": "body",
                     "description": "type of the user",
                     "required": true,
                     "type": "string"
                   },
                   {
                     "name": "full_name",
-                    "in": "formData",
+                    "in": "body",
                     "description": "full name of the user",
                     "required": true,
                     "type": "string"
                   },
                   {
                     "name": "email",
-                    "in": "formData",
+                    "in": "body",
                     "description": "Email of user",
                     "required": true,
                     "type": "string"
                   },
                   {
                     "name": "contact_number",
-                    "in": "formData",
+                    "in": "body",
                     "description": "Phone number of user",
                     "required": true,
                     "type": "string"
@@ -455,7 +456,7 @@
                 "parameters": [
                      {
                     "name": "uuid",
-                    "in": "formData",
+                    "in": "body",
                     "description": "uuid of IDN user",
                     "required": true,
                     "type": "string"
@@ -563,21 +564,21 @@
             "parameters": [
                
                 {
-                    "in": "formData",
+                    "in": "query",
                     "name": "id",
                     "description": "ID of source to upload picture.",
                     "required": true,
                     "type": "integer"
                 },
                  {
-                    "in": "formData",
+                    "in": "query",
                     "name": "media_for",
                     "description": "Type of model like company_logo, company_brand, profile, associate_profile,event.",
                     "required": true,
                     "type": "string"
                 },
                 {
-                    "in": "formData",
+                    "in": "body",
                     "name": "image_file",
                     "description": "Image File Content.",
                     "required": true,
@@ -875,6 +876,36 @@
             }
           }        
         },
+        "/startup-fundraising/v0/funding_rounds/types": {
+          "get": {
+            "summary": "Get List of funding round types",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          }        
+        },
         "/startup-fundraising/v0/tenantInfo": {
           "get": {
             "summary": "Get the tenant Id of a token",
@@ -960,14 +991,14 @@
                     "type": "integer"
                 },
                 {
-                    "in": "formData",
+                    "in": "body",
                     "name": "name",
                     "description": "Name of the team member",
                     "required": true,
                     "type": "string"
                 },
                 {
-                    "in": "formData",
+                    "in": "body",
                     "name": "email",
                     "description": "Email of the team member",
                     "required": true,
@@ -981,14 +1012,14 @@
                     "type": "integer"
                 },
                 {
-                    "in": "formData",
+                    "in": "body",
                     "name": "position",
                     "description": "Position of the team member",
                     "required": false,
                     "type": "string"
                 },
                 {
-                    "in": "formData",
+                    "in": "body",
                     "name": "experience_and_expertise",
                     "description": "Experience of the team member",
                     "required": false,
@@ -1012,7 +1043,7 @@
             }
           }        
         },
-        "startup-fundraising/v0/associates/{id}": {
+        "/startup-fundraising/v0/associates/{id}": {
           "get": {
             "summary": "Get an associate of a company",
             "tags": ["module:startup-fundraising"],
@@ -1066,35 +1097,35 @@
                     "type": "integer"
                 },
                 {
-                    "in": "formData",
+                    "in": "body",
                     "name": "name",
                     "description": "Name of the team member",
                     "required": true,
                     "type": "string"
                 },
                 {
-                    "in": "formData",
+                    "in": "body",
                     "name": "email",
                     "description": "Email of the team member",
                     "required": true,
                     "type": "string"
                 },
                 {
-                    "in": "formData",
+                    "in": "body",
                     "name": "contact_number",
                     "description": "Phone number of the team member",
                     "required": true,
                     "type": "integer"
                 },
                 {
-                    "in": "formData",
+                    "in": "body",
                     "name": "position",
                     "description": "Position of the team member",
                     "required": false,
                     "type": "string"
                 },
                 {
-                    "in": "formData",
+                    "in": "body",
                     "name": "experience_and_expertise",
                     "description": "Experience of the team member",
                     "required": false,
@@ -1151,6 +1182,355 @@
                 }
             }
           }
-        }
+        },
+        "/startup-fundraising/v0/companies/{id}/fundingRounds": {
+          "get": {
+            "summary": "Get List of funding rounds of a company",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of company",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          },
+          "post": {
+            "summary": "Create a fundinground for a comapny",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of company",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          }        
+        },
+        "/startup-fundraising/v0/fundingRounds/{id}": {
+          "get": {
+            "summary": "Get List of funding rounds of a company",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of fundinground",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          },
+          "put": {
+            "summary": "update a fundinground for a comapny",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of fundinground",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          },
+          "delete": {
+            "summary": "delete a fundinground for a comapny",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of fundinground",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          }                  
+        },
+        "/startup-fundraising/v0/funding_rounds/{id}/investment_commitments": {
+          "get": {
+            "summary": "Get List of user investments of a company funding round",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of funding round",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          },
+          "post": {
+            "summary": "Create an investment on a funding round of a company",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of funding round",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          }
+
+        },
+        "/startup-fundraising/v0/investmentCommitments/{id}": {
+          "get": {
+            "summary": "Get an invesment commitment",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of investment commitment",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          },
+          "put": {
+            "summary": "update investment commitment",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of Investment Commitment",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          },
+          "delete": {
+            "summary": "delete Investment Commitment",
+            "tags": ["module:startup-fundraising"],
+            "security": [
+                {
+                    "Bearer": [
+
+                    ]
+                }
+            ],
+            "parameters": [
+              {
+                    "in": "path",
+                    "name": "id",
+                    "description": "ID of Investment Commitment",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "produces": [
+               "application/json"
+            ],                
+            "responses": {
+                "200": {
+                    "description": "Success"
+                },
+                "400": {
+                    "description": "Bad Request"
+                },
+                "401": {
+                    "description": "Unauthorized"
+                }
+            }
+          }                  
+        }   
     }                          
 }
