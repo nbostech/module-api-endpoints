@@ -1,31 +1,24 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "This is a AstrOme Notification server.\n\nFor this sample, you can use the api key `special-key` to test the authorization filters\n",
+        "description": "This is a Wavelabs Notification server.\n\nFor this sample, you can use the api key `special-key` to test the authorization filters\n",
         "version": "1.0.0",
         "title": "Push Notiifcation Server API",
         "termsOfService": "http://www.nbos.in",
-        "contact": {
-            "name": "apiteam@swagger.io"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        }
     },
-    "host": "http://www.nbos.in/api/notification/",
-    "basePath": "/v0/{tenantId}/notification",
+    "host": "http://notifications.nbos.in/notifications/",
+    "basePath": "/v0/{tenantId}",
     "schemes": [
         "http"
     ],
     "paths": {
-        "/device": {
+        "/register": {
             "post": {
                 "tags": [
                     "UserDevice"
                 ],
                 "summary": "Add a new device to user",
-                "description": "This needs to be called as soon as device is installed.",
+                "description": "This can be called when device is installed, also you make same call to update user on login/logout w.r.t. device token",
                 "operationId": "addDevice",
                 "consumes": [
                     "application/json"
@@ -54,14 +47,16 @@
                         "Bearer": []
                     }
                 ]
-            },
+            } 
+        },
+        "/unregister": {
             "delete": {
                 "tags": [
-                    "UserDevice"
+                    "RemoveDevice"
                 ],
-                "summary": "UnSubscribe  Device for that user",
-                "description": "This needs to be called when app is uninstalled",
-                "operationId": "updateProfile",
+                "summary": "Remove device token",
+                "description": "Remove a device token if user is no longer using it ",
+                "operationId": "removeDevice",
                 "consumes": [
                     "application/json"
                 ],
@@ -69,80 +64,40 @@
                     "application/json"
                 ],
                 "parameters": [
-                    {
+                  {
                         "in": "body",
                         "name": "body",
-                        "description": "Profile object that needs to be added to the store",
-                        "required": false,
+                        "description": "ios and android devices generic message.",
+                        "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Device"
-                        }
-                    }
-                ],
-                "responses": {
-                    "400": {
-                        "description": "Invalid ID supplied"
-                    },
-                    "404": {
-                        "description": "Profile not found"
-                    },
-                    "405": {
-                        "description": "Validation exception"
-                    }
-                }
-            },
-            "get": {
-                "tags": [
-                    "UserDevice"
-                ],
-                "summary": "Get list of profile for user based on user token",
-                "description": "",
-                "operationId": "getProfiles",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "user_id",
-                        "description": "Get all devices registerd for a user.",
-                        "required": false,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Device"
+                          "type":"string",
+                          "example":
+                             {
+                                  "deviceToken": "1ebc3e9f747a6ebb9c4c067efb7e4b9452ce4e6d84fc18dbc57323f3a84953f3"
                             }
                         }
-                    },
-                    "400": {
-                        "description": "Invalid ID supplied"
-                    },
-                    "404": {
-                        "description": "Profile not found"
-                    },
+                  }
+                  ],
+                "responses": {
                     "405": {
-                        "description": "Validation exception"
+                        "description": "Invalid input"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
             }
         },
-        "/SinglePush": {
+        "/sendUser": {
             "post": {
                 "tags": [
-                    "SinglePush"
+                    "PushOneUser"
                 ],
-                "summary": "Add a new device to user",
-                "description": "Notify a user about new message across all devices. This will be sent asap without using any queuing job ",
-                "operationId": "addDevice",
+                "summary": "Push notifications to one user",
+                "description": "Push notification to one user based on user id, userid is updted using /register call",
+                "operationId": "sendAllDevice",
                 "consumes": [
                     "application/json"
                 ],
@@ -150,20 +105,21 @@
                     "application/json"
                 ],
                 "parameters": [
-                    {
-                        "in": "query",
-                        "name": "user_id",
-                        "description": "User for whom single notification needs to be sent.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "message",
-                        "description": "Payload message ",
-                        "required": false,
-                        "type": "string"
-                    },
+                  {
+                        "in": "body",
+                        "name": "body",
+                        "description": "ios and android devices generic message.",
+                        "required": true,
+                        "schema": {
+                          "type":"string",
+                          "example":
+                             {
+                              "user_id": "mem:sharief",
+                              "data": {"alert":"your order has been updated","title":"order stats","route":"orderid|234234234" }
+                            }
+                        }
+                  }
+                 
                 ],
                 "responses": {
                     "405": {
@@ -177,14 +133,14 @@
                 ]
             }
         },
-        "/TenantPush": {
+        "/sendAll": {
             "post": {
                 "tags": [
-                    "TenantPush"
+                    "PushByDeviceType"
                 ],
                 "summary": "Push notifications to all users",
                 "description": "This is sent through a job because all users of tenant needs to be notified ",
-                "operationId": "addDevice",
+                "operationId": "sendAllDevice",
                 "consumes": [
                     "application/json"
                 ],
@@ -192,20 +148,79 @@
                     "application/json"
                 ],
                 "parameters": [
+                  {
+                        "in": "body",
+                        "name": "body",
+                        "description": "ios and android devices generic message.",
+                        "required": true,
+                        "schema": {
+                          "type":"string",
+                          "example":
+                             {
+                              "where": {
+                                "deviceType": {
+                                  "$in": [
+                                    "ios",
+                                    "android"
+                                  ]
+                                }
+                              },
+                              "data": {
+                                "alert": "Daily update title",
+                                "title": "Daily update message",
+                                "route": "orderid|234234234"
+                              }
+                            }
+                        }
+                  }
+                 
+                ],
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [
                     {
-                        "in": "query",
-                        "name": "user_id",
-                        "description": "User for whom single notification needs to be sent.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "message",
-                        "description": "Payload message ",
-                        "required": false,
-                        "type": "string"
-                    },
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+         "/sendAll?": {
+            "post": {
+                "tags": [
+                    "SendByChannel"
+                ],
+                "summary": "Push notifications to all users",
+                "description": "This is sent through a job because all users of tenant needs to be notified. Users subscribe to channel using /register and one can send notification based on subscribed channel",
+                "operationId": "sendAllDevice",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                  {
+                        "in": "body",
+                        "name": "body",
+                        "description": "ios and android devices generic message.",
+                        "required": true,
+                        "schema": {
+                          "type":"string",
+                          "example":
+                             {
+                              "channels": ["myapp:main","myapp:group", "myapp:forum", "myapp:order"],
+                              "data": {
+                                "alert": "Show pachang",
+                                "title": "Today's panchang",
+                                "route": "orderid|234234234"
+                              }
+                            }
+                        }
+                  }
+                 
                 ],
                 "responses": {
                     "405": {
@@ -245,11 +260,11 @@
                     "example": "mem:242342394",
                     "description": "Unique member id given by Tenant"
                 },
-                "platform": {
+                "deviceType": {
                     "type": "string",
                     "example": "Ios/Android/BlackBerry/Windows"
                 },
-                "device_id": {
+                "deviceToken": {
                     "type": "string",
                     "example": "Unique_Device_Id"
                 },
