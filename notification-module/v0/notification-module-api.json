@@ -6,11 +6,9 @@
         "title": "Push Notiifcation Server API",
         "termsOfService": "http://www.nbos.in",
     },
-    "host":"nbos.in",
+    "host":"notifications.nbos.in",
     "basePath": "/notifications/v0/tenantId",
-    "schemes": [
-        "http","https"
-    ],
+    "schemes": ["http"],
     "paths": {
         "/register": {
             "post": {
