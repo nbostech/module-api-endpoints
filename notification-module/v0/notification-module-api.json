@@ -4,7 +4,7 @@
         "description": "This is a Wavelabs Notification server.For this sample, you can use the api key   to test the authorization filters",
         "version": "1.0.0",
         "title": "Push Notiifcation Server API",
-        "termsOfService": "http://www.nbos.in",
+        "termsOfService": "http://www.nbos.in"
     },
     "host":"notifications.nbos.in",
     "basePath": "/notifications/v0/tenantId",
