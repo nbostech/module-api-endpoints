@@ -1,15 +1,15 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "This is a Wavelabs Notification server.\n\nFor this sample, you can use the api key `special-key` to test the authorization filters\n",
+        "description": "This is a Wavelabs Notification server.For this sample, you can use the api key   to test the authorization filters",
         "version": "1.0.0",
         "title": "Push Notiifcation Server API",
         "termsOfService": "http://www.nbos.in",
     },
-    "host": "http://notifications.nbos.in/notifications/",
-    "basePath": "/v0/{tenantId}",
+    "host":"nbos.in",
+    "basePath": "/notifications/v0/tenantId",
     "schemes": [
-        "http"
+        "http","https"
     ],
     "paths": {
         "/register": {
@@ -140,7 +140,7 @@
                 ],
                 "summary": "Push notifications to all users",
                 "description": "This is sent through a job because all users of tenant needs to be notified ",
-                "operationId": "sendAllDevice",
+                "operationId": "sendAllDevices",
                 "consumes": [
                     "application/json"
                 ],
@@ -194,7 +194,7 @@
                 ],
                 "summary": "Push notifications to all users",
                 "description": "This is sent through a job because all users of tenant needs to be notified. Users subscribe to channel using /register and one can send notification based on subscribed channel",
-                "operationId": "sendAllDevice",
+                "operationId": "sendByChannel",
                 "consumes": [
                     "application/json"
                 ],
@@ -246,8 +246,8 @@
         "Device": {
             "type": "object",
             "required": [
-                "platform",
-                "device_id",
+                "deviceType",
+                "deviceToken",
                 "user_id"
             ],
             "properties": {
@@ -271,20 +271,6 @@
                 "status": {
                     "type": "integer",
                     "description": "Status active 1 or inactive 0"
-                }
-            }
-        },
-        "push": {
-            "type": "object",
-            "properties": {
-                "jobid": {
-                    "type": "integer",
-                    "format": "int64",
-                    "description": "Scheduled Job Id"
-                },
-                "status": {
-                    "type": "string",
-                    "description": "Status of job"
                 }
             }
         }
