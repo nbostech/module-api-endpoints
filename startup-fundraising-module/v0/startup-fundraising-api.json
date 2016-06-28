@@ -1357,7 +1357,7 @@
             }
           }                  
         },
-        "/startup-fundraising/v0/funding_rounds/{id}/investment_commitments": {
+        "/startup-fundraising/v0/fundingRounds/{id}/investmentCommitments": {
           "get": {
             "summary": "Get List of user investments of a company funding round",
             "tags": ["module:startup-fundraising"],
