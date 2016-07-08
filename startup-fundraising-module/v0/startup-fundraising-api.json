@@ -20,7 +20,7 @@
         "/startup-fundraising/v0/about": {
           "get": {
                 "summary": "About the Module",
-                "tags": ["module:startup-fundraising"],
+                "tags": ["module:fundr"],
                 "security": [
                     {
                         "Bearer": [
@@ -51,7 +51,7 @@
         "/startup-fundraising/v0/users": {
             "get": {
                 "summary": "List of All Users",
-                "tags": ["module:startup-fundraising"],
+                "tags": ["module:fundr"],
                 "security": [
                     {
                         "Bearer": [
@@ -89,7 +89,7 @@
         "/startup-fundraising/v0/companies": {
             "post": {
                 "summary": "Create a Company for User.",
-                "tags": ["module:startup-fundraising"],
+                "tags": ["module:fundr"],
                 "security": [
                     {
                         "Bearer": [
@@ -117,7 +117,7 @@
             },
            "get": {
                 "summary": "All List of companies in 50k network.",
-                "tags": ["module:startup-fundraising"],
+                "tags": ["module:fundr"],
                 "security": [
                     {
                         "Bearer": [
@@ -154,7 +154,7 @@
         "/startup-fundraising/v0/companies/{id}": {
             "get": {
                 "summary": "get Company profile.",
-                "tags": ["module:startup-fundraising"],
+                "tags": ["module:fundr"],
                 "security": [
                     {
                         "Bearer": [
@@ -189,7 +189,7 @@
             },
             "delete": {
                 "summary": "Delete a Company of a User.",
-                "tags": ["module:startup-fundraising"],
+                "tags": ["module:fundr"],
                 "security": [
                     {
                         "Bearer": [
@@ -226,7 +226,7 @@
         "/startup-fundraising/v0/companies/{id}/profile": {
           "put": {
                 "summary": "Update Company profile.",
-                "tags": ["module:startup-fundraising"],
+                "tags": ["module:fundr"],
                 "security": [
                     {
                         "Bearer": [
@@ -262,7 +262,7 @@
         "/startup-fundraising/v0/user/favorites": {
             "get": {
                 "summary": "Get All favorite Companies of a user.",
-                "tags": ["module:startup-fundraising"],
+                "tags": ["module:fundr"],
                 "security": [
                     {
                         "Bearer": [
@@ -297,7 +297,7 @@
             },
             "delete": {
                 "summary": "Delete a Startup from user favorite list",
-                "tags": ["module:startup-fundraising"],
+                "tags": ["module:fundr"],
                 "security": [
                     {
                         "Bearer": [
@@ -338,7 +338,7 @@
             },
             "post": {
                 "summary": "Add a company to user favorite list",
-                "tags": ["module:startup-fundraising"],
+                "tags": ["module:fundr"],
                 "security": [
                     {
                         "Bearer": [
@@ -381,7 +381,7 @@
         "/startup-fundraising/v0/users/signup": {
             "post": {
                 "summary": "Create New User.",
-                "tags": ["module:startup-fundraising"],
+                "tags": ["module:fundr"],
                 "security": [
                     {
                         "Bearer": [
@@ -445,7 +445,7 @@
         "/startup-fundraising/v0/users/signin": {
             "post": {
                 "summary": "Login as User.",
-                "tags": ["module:startup-fundraising"],
+                "tags": ["module:fundr"],
                 "security": [
                     {
                         "Bearer": [
@@ -482,7 +482,7 @@
         "/startup-fundraising/v0/users/{id}": {
             "get": {
                 "summary": "get User profile.",
-                "tags": ["module:startup-fundraising"],
+                "tags": ["module:fundr"],
                 "security": [
                     {
                         "Bearer": [
@@ -517,7 +517,7 @@
             },
             "put": {
                 "summary": "Update User profile.",
-                "tags": ["module:startup-fundraising"],
+                "tags": ["module:fundr"],
                 "security": [
                     {
                         "Bearer": [
@@ -553,7 +553,7 @@
         "/startup-fundraising/v0/media": {
           "post": {
             "summary": "Upload a Picture.",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -602,7 +602,7 @@
           },
           "get": {
             "summary": "get Picture.",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -639,7 +639,7 @@
         "/startup-fundraising/v0/company/categories": {
           "get": {
             "summary": "Get List of company catogories",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -669,7 +669,7 @@
         "/startup-fundraising/v0/company/stages": {
           "get": {
             "summary": "Get List of company stages",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -699,7 +699,7 @@
         "/startup-fundraising/v0/currency/types": {
           "get": {
             "summary": "Get List of currency types",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -729,7 +729,7 @@
         "/startup-fundraising/v0/document/types": {
           "get": {
             "summary": "Get List of document categories",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -759,7 +759,7 @@
         "/startup-fundraising/v0/address/types": {
           "get": {
             "summary": "Get List of adress types",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -789,7 +789,7 @@
         "/startup-fundraising/v0/associate/types": {
           "get": {
             "summary": "Get List of associate types",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -819,7 +819,7 @@
         "/startup-fundraising/v0/company/description/types": {
           "get": {
             "summary": "Get List of company summary types",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -849,7 +849,7 @@
         "/startup-fundraising/v0/domain_expertises/types": {
           "get": {
             "summary": "Get List of domain expertises types",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -879,7 +879,7 @@
         "/startup-fundraising/v0/funding_rounds/types": {
           "get": {
             "summary": "Get List of funding round types",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -909,7 +909,7 @@
         "/startup-fundraising/v0/tenantInfo": {
           "get": {
             "summary": "Get the tenant Id of a token",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -939,7 +939,7 @@
         "/startup-fundraising/v0/companies/{id}/associates": {
           "get": {
             "summary": "Get List of company team members",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -974,7 +974,7 @@
           },
           "post": {
             "summary": "Add member to a company",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -1046,7 +1046,7 @@
         "/startup-fundraising/v0/associates/{id}": {
           "get": {
             "summary": "Get an associate of a company",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -1080,7 +1080,7 @@
           },          
           "put": {
             "summary": "Update team member of a company",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -1150,7 +1150,7 @@
           },
           "delete": {
             "summary": "Delete team member of a company",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -1186,7 +1186,7 @@
         "/startup-fundraising/v0/companies/{id}/fundingRounds": {
           "get": {
             "summary": "Get List of funding rounds of a company",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -1220,7 +1220,7 @@
           },
           "post": {
             "summary": "Create a fundinground for a comapny",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -1256,7 +1256,7 @@
         "/startup-fundraising/v0/fundingRounds/{id}": {
           "get": {
             "summary": "Get List of funding rounds of a company",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -1290,7 +1290,7 @@
           },
           "put": {
             "summary": "update a fundinground for a comapny",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -1324,7 +1324,7 @@
           },
           "delete": {
             "summary": "delete a fundinground for a comapny",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -1360,7 +1360,7 @@
         "/startup-fundraising/v0/fundingRounds/{id}/investmentCommitments": {
           "get": {
             "summary": "Get List of user investments of a company funding round",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -1394,7 +1394,7 @@
           },
           "post": {
             "summary": "Create an investment on a funding round of a company",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -1431,7 +1431,7 @@
         "/startup-fundraising/v0/investmentCommitments/{id}": {
           "get": {
             "summary": "Get an invesment commitment",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -1465,7 +1465,7 @@
           },
           "put": {
             "summary": "update investment commitment",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
@@ -1499,7 +1499,7 @@
           },
           "delete": {
             "summary": "delete Investment Commitment",
-            "tags": ["module:startup-fundraising"],
+            "tags": ["module:fundr"],
             "security": [
                 {
                     "Bearer": [
