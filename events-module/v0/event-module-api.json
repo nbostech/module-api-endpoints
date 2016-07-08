@@ -4,6 +4,7 @@
         "version": "0.0.0",
         "title": "Generic Event module"
     },
+    "host": "fundr.api.qa1.nbos.in",
     "basePath": "/api",
     "securityDefinitions":
     {
@@ -66,12 +67,101 @@
               "tags": ["module:events"],
               "security": [
                   {
-                    "Bearer": [
-
-                    ]
+                    "Bearer": [ ]
                   }
               ],
               "parameters": [
+                {
+                  "in": "body",
+                  "name": "name",
+                  "description": "Name of the Event",
+                  "required": true,
+                  "type": "string"
+                },
+                {
+                  "in": "body",
+                  "name": "description",
+                  "description": "Description about Event",
+                  "required": true,
+                  "type": "string"
+                },
+                {
+                  "in": "body",
+                  "name": "address",
+                  "description": "Event Address",
+                  "required": true,
+                  "type": "string"
+                },
+                {
+                  "in": "body",
+                  "name": "start_date",
+                  "description": "Event start date",
+                  "required": true,
+                  "type": "string"
+                },
+                {
+                  "in": "body",
+                  "name": "end_date",
+                  "description": "Event end date",
+                  "required": true,
+                  "type": "string"
+                },
+                {
+                  "in": "body",
+                  "name": "start_time",
+                  "description": "Event start time",
+                  "required": true,
+                  "type": "string"
+                },
+                {
+                  "in": "body",
+                  "name": "end_time",
+                  "description": "Event end time",
+                  "required": true,
+                  "type": "string"
+                },
+                {
+                  "in": "body",
+                  "name": "location",
+                  "description": "Event Location",
+                  "required": true,
+                  "type": "string"
+                },
+                {
+                  "in": "body",
+                  "name": "is_public",
+                  "description": "Event is public or not",
+                  "required": true,
+                  "type": "string"
+                },
+                {
+                  "in": "body",
+                  "name": "is_active",
+                  "description": "Event is active or not",
+                  "required": true,
+                  "type": "string"
+                },
+                {
+                  "in": "body",
+                  "name": "contact_person",
+                  "description": "Event organizer contact name",
+                  "required": true,
+                  "type": "string"
+                },
+                {
+                  "in": "body",
+                  "name": "contact_number",
+                  "description": "Contact number of Event organizer",
+                  "required": true,
+                  "type": "string"
+                },
+                {
+                  "in": "body",
+                  "name": "website",
+                  "description": "Event website",
+                  "required": true,
+                  "type": "string"
+                }
               ],
               "responses": {
                   "200": {
@@ -216,6 +306,33 @@
                         "in": "path",
                         "name": "eventId",
                         "description": "ID of event that needs to be update",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/events/v0/events/{eventId}/attend": {
+           "post": {
+                "summary": "Send RSVP to an Event",
+                "tags": ["module:events"],
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "eventId",
+                        "description": "ID of event",
                         "required": true,
                         "type": "integer"
                     }
