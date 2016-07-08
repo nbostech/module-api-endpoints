@@ -13,7 +13,7 @@
         "/register": {
             "post": {
                 "tags": [
-                    "Notifications:RegisterUserDevice"
+                    "module:Notifications:RegisterUserDevice"
                 ],
                 "summary": "Add a new device to user",
                 "description": "This can be called when device is installed, also you make same call to update user on login/logout w.r.t. device token",
@@ -50,7 +50,7 @@
         "/unregister": {
             "delete": {
                 "tags": [
-                    "Notifications:RemoveDevice"
+                    "module:Notifications:RemoveDevice"
                 ],
                 "summary": "Remove device token",
                 "description": "Remove a device token if user is no longer using it ",
@@ -91,7 +91,7 @@
         "/sendUser": {
             "post": {
                 "tags": [
-                    "Notifications:PushOneUser"
+                    "module:Notifications:PushOneUser"
                 ],
                 "summary": "Push notifications to one user",
                 "description": "Push notification to one user based on user id, userid is updted using /register call",
@@ -134,7 +134,7 @@
         "/sendAll": {
             "post": {
                 "tags": [
-                    "Notifications:PushByDeviceType"
+                    "module:Notifications:PushByDeviceType"
                 ],
                 "summary": "Push notifications to all users",
                 "description": "This is sent through a job because all users of tenant needs to be notified ",
@@ -188,7 +188,7 @@
          "/sendAll?": {
             "post": {
                 "tags": [
-                    "Notifications:SendByChannel"
+                    "module:Notifications:SendByChannel"
                 ],
                 "summary": "Push notifications to all users",
                 "description": "This is sent through a job because all users of tenant needs to be notified. Users subscribe to channel using /register and one can send notification based on subscribed channel",
