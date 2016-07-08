@@ -17,7 +17,7 @@
      }
     },   
     "paths": {
-        "/startup-fundraising/v0/about": {
+        "/fundr/v0/about": {
           "get": {
                 "summary": "About the Module",
                 "tags": ["module:fundr"],
@@ -48,7 +48,7 @@
                 }
             }
         },
-        "/startup-fundraising/v0/users": {
+        "/fundr/v0/users": {
             "get": {
                 "summary": "List of All Users",
                 "tags": ["module:fundr"],
@@ -86,7 +86,7 @@
                 }
             }
         },
-        "/startup-fundraising/v0/companies": {
+        "/fundr/v0/companies": {
             "post": {
                 "summary": "Create a Company for User.",
                 "tags": ["module:fundr"],
@@ -151,7 +151,7 @@
                 }
             }             
          },                    
-        "/startup-fundraising/v0/companies/{id}": {
+        "/fundr/v0/companies/{id}": {
             "get": {
                 "summary": "get Company profile.",
                 "tags": ["module:fundr"],
@@ -223,7 +223,7 @@
                 }
             }
         },
-        "/startup-fundraising/v0/companies/{id}/profile": {
+        "/fundr/v0/companies/{id}/profile": {
           "put": {
                 "summary": "Update Company profile.",
                 "tags": ["module:fundr"],
@@ -259,7 +259,7 @@
                 }
           }
         },
-        "/startup-fundraising/v0/user/favorites": {
+        "/fundr/v0/user/favorites": {
             "get": {
                 "summary": "Get All favorite Companies of a user.",
                 "tags": ["module:fundr"],
@@ -378,7 +378,7 @@
                 }
             }
         },
-        "/startup-fundraising/v0/users/signup": {
+        "/fundr/v0/users/signup": {
             "post": {
                 "summary": "Create New User.",
                 "tags": ["module:fundr"],
@@ -442,7 +442,7 @@
                 }
             }
         },
-        "/startup-fundraising/v0/users/signin": {
+        "/fundr/v0/users/signin": {
             "post": {
                 "summary": "Login as User.",
                 "tags": ["module:fundr"],
@@ -479,7 +479,7 @@
                 }
             }
         },
-        "/startup-fundraising/v0/users/{id}": {
+        "/fundr/v0/users/{id}": {
             "get": {
                 "summary": "get User profile.",
                 "tags": ["module:fundr"],
@@ -550,7 +550,7 @@
                 }
             }
         },
-        "/startup-fundraising/v0/media": {
+        "/fundr/v0/media": {
           "post": {
             "summary": "Upload a Picture.",
             "tags": ["module:fundr"],
@@ -636,7 +636,7 @@
             } 
           }       
         },
-        "/startup-fundraising/v0/company/categories": {
+        "/fundr/v0/company/categories": {
           "get": {
             "summary": "Get List of company catogories",
             "tags": ["module:fundr"],
@@ -666,7 +666,7 @@
             }
           }        
         },
-        "/startup-fundraising/v0/company/stages": {
+        "/fundr/v0/company/stages": {
           "get": {
             "summary": "Get List of company stages",
             "tags": ["module:fundr"],
@@ -696,7 +696,7 @@
             }
           }        
         },
-        "/startup-fundraising/v0/currency/types": {
+        "/fundr/v0/currency/types": {
           "get": {
             "summary": "Get List of currency types",
             "tags": ["module:fundr"],
@@ -726,7 +726,7 @@
             }
           }        
         },
-        "/startup-fundraising/v0/document/types": {
+        "/fundr/v0/document/types": {
           "get": {
             "summary": "Get List of document categories",
             "tags": ["module:fundr"],
@@ -756,7 +756,7 @@
             }
           }        
         },
-        "/startup-fundraising/v0/address/types": {
+        "/fundr/v0/address/types": {
           "get": {
             "summary": "Get List of adress types",
             "tags": ["module:fundr"],
@@ -786,7 +786,7 @@
             }
           }        
         },
-        "/startup-fundraising/v0/associate/types": {
+        "/fundr/v0/associate/types": {
           "get": {
             "summary": "Get List of associate types",
             "tags": ["module:fundr"],
@@ -816,7 +816,7 @@
             }
           }        
         },
-        "/startup-fundraising/v0/company/description/types": {
+        "/fundr/v0/company/description/types": {
           "get": {
             "summary": "Get List of company summary types",
             "tags": ["module:fundr"],
@@ -846,7 +846,7 @@
             }
           }        
         },
-        "/startup-fundraising/v0/domain_expertises/types": {
+        "/fundr/v0/domain_expertises/types": {
           "get": {
             "summary": "Get List of domain expertises types",
             "tags": ["module:fundr"],
@@ -876,7 +876,7 @@
             }
           }        
         },
-        "/startup-fundraising/v0/funding_rounds/types": {
+        "/fundr/v0/funding_rounds/types": {
           "get": {
             "summary": "Get List of funding round types",
             "tags": ["module:fundr"],
@@ -906,7 +906,7 @@
             }
           }        
         },
-        "/startup-fundraising/v0/tenantInfo": {
+        "/fundr/v0/tenantInfo": {
           "get": {
             "summary": "Get the tenant Id of a token",
             "tags": ["module:fundr"],
@@ -936,7 +936,7 @@
             }
           }        
         },                  
-        "/startup-fundraising/v0/companies/{id}/associates": {
+        "/fundr/v0/companies/{id}/associates": {
           "get": {
             "summary": "Get List of company team members",
             "tags": ["module:fundr"],
@@ -1043,7 +1043,7 @@
             }
           }        
         },
-        "/startup-fundraising/v0/associates/{id}": {
+        "/fundr/v0/associates/{id}": {
           "get": {
             "summary": "Get an associate of a company",
             "tags": ["module:fundr"],
@@ -1183,7 +1183,7 @@
             }
           }
         },
-        "/startup-fundraising/v0/companies/{id}/fundingRounds": {
+        "/fundr/v0/companies/{id}/fundingRounds": {
           "get": {
             "summary": "Get List of funding rounds of a company",
             "tags": ["module:fundr"],
@@ -1253,7 +1253,7 @@
             }
           }        
         },
-        "/startup-fundraising/v0/fundingRounds/{id}": {
+        "/fundr/v0/fundingRounds/{id}": {
           "get": {
             "summary": "Get List of funding rounds of a company",
             "tags": ["module:fundr"],
@@ -1357,7 +1357,7 @@
             }
           }                  
         },
-        "/startup-fundraising/v0/fundingRounds/{id}/investmentCommitments": {
+        "/fundr/v0/fundingRounds/{id}/investmentCommitments": {
           "get": {
             "summary": "Get List of user investments of a company funding round",
             "tags": ["module:fundr"],
@@ -1428,7 +1428,7 @@
           }
 
         },
-        "/startup-fundraising/v0/investmentCommitments/{id}": {
+        "/fundr/v0/investmentCommitments/{id}": {
           "get": {
             "summary": "Get an invesment commitment",
             "tags": ["module:fundr"],
