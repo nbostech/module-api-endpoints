@@ -1,0 +1,154 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "0.0.0",
+        "title": "Generic Todo module"
+    },
+    "host": "http://localhost:3000",
+    "basePath": "/api",
+    "securityDefinitions":
+    {
+     "Bearer":{
+       "type": "apiKey",
+       "name": "Authorization",
+       "in": "header"
+     }
+    },   
+    "paths": {
+        "/todo/v0/todos": {
+            "get": {
+                "summary": "List of all public Todos in a tenant or user's todos",
+                "tags": ["module:rails-todos"],
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
+                "parameters": [
+
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a user's Todo",
+                "tags": ["module:rails-todos"],
+                "security": [
+                    {
+                        "Bearer": [
+
+                        ]
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "title",
+                        "description": "Name of the todo",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "note",
+                        "description": "Description of the todo",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "completed",
+                        "description": "Status of the todo whether it is completed or not",
+                        "required": true,
+                        "type": "boolean"
+                    }
+
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+
+        },
+        "/todo/v0/todos/{id}": {
+           "get": {
+              "summary": "Show particular todo details",
+              "tags": ["module:rails-todos"],
+              "security": [
+                  {
+                    "Bearer": [
+
+                    ]
+                  }
+              ],
+              "parameters": [
+                {
+                  "in": "path",
+                  "name": "id",
+                  "description": "id of the todo",
+                  "required": true,
+                  "type": "integer"
+                }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Success"
+                  }
+              }
+            },
+          "put": {
+              "summary": "Update particular todo",
+              "tags": ["module:rails-todos"],
+              "security": [
+                  {
+                    "Bearer": [
+
+                    ]
+                  }
+              ],
+              "parameters": [
+                  {
+                      "in": "body",
+                      "name": "title",
+                      "description": "Name of the todo",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "in": "body",
+                      "name": "note",
+                      "description": "Description of the todo",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "in": "body",
+                      "name": "completed",
+                      "description": "Status of the todo whether it is completed or not",
+                      "required": true,
+                      "type": "boolean"
+                  },
+                  {
+                      "in": "body",
+                      "name": "public",
+                      "description": "Scope of the todo whether it is public within a tenant or not",
+                      "required": true,
+                      "type": "boolean"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Success"
+                  }
+              }
+            } 
+        }   
+    }
+}
