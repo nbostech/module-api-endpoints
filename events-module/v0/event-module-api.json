@@ -6,6 +6,17 @@
     },
     "host": "fundr.api.qa1.nbos.in",
     "basePath": "/api",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json",
+        "application/xml"
+    ],
     "securityDefinitions":
     {
      "Bearer":{
@@ -21,9 +32,7 @@
                 "tags": ["module:events"],
                 "security": [
                     {
-                        "Bearer": [
-
-                        ]
+                        "Bearer": [ "apiKey"]
                     }
                 ],
                 "parameters": [
@@ -37,7 +46,40 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Success",
+                         "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ShowEvent"
+                            }
+                        }
+                    },
+                    "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                              "type": "object",
+                              "items": {
+                                  "$ref": "#/definitions/BadRequest"
+                              }
+                         }
+                    },
+                    "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                              "type": "object",
+                              "items": {
+                                  "$ref": "#/definitions/UnauthorizedRequest"
+                              }
+                         }
+                    },
+                    "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                              "type": "object",
+                              "items": {
+                                  "$ref": "#/definitions/ServerError"
+                              }
+                         }
                     }
                 }
             }
@@ -49,16 +91,46 @@
               "tags": ["module:events"],
               "security": [
                   {
-                    "Bearer": [
-
-                    ]
+                    "Bearer": []
                   }
               ],
-              "parameters": [
-              ],
+              "parameters": [],
               "responses": {
                   "200": {
-                      "description": "Success"
+                      "description": "Success",
+                      "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ShowEvent"
+                            }
+                        }
+                  },
+                  "400": {
+                    "description": "Bad Request",
+                    "schema": {
+                          "type": "object",
+                          "items": {
+                                "$ref": "#/definitions/BadRequest"
+                          }
+                    }
+                  },
+                  "401": {
+                    "description": "Unauthorized",
+                    "schema": {
+                          "type": "object",
+                          "items": {
+                              "$ref": "#/definitions/UnauthorizedRequest"
+                          }
+                    }
+                  },
+                  "500": {
+                    "description": "Internal Server Error",
+                    "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/ServerError"
+                            }
+                    }
                   }
               }
             },
@@ -73,102 +145,54 @@
               "parameters": [
                 {
                   "in": "body",
-                  "name": "name",
-                  "description": "Name of the Event",
+                  "name": "body",
+                  "description": "New Event to be add",
                   "required": true,
-                  "type": "string"
-                },
-                {
-                  "in": "body",
-                  "name": "description",
-                  "description": "Description about Event",
-                  "required": true,
-                  "type": "string"
-                },
-                {
-                  "in": "body",
-                  "name": "address",
-                  "description": "Event Address",
-                  "required": true,
-                  "type": "string"
-                },
-                {
-                  "in": "body",
-                  "name": "start_date",
-                  "description": "Event start date",
-                  "required": true,
-                  "type": "string"
-                },
-                {
-                  "in": "body",
-                  "name": "end_date",
-                  "description": "Event end date",
-                  "required": true,
-                  "type": "string"
-                },
-                {
-                  "in": "body",
-                  "name": "start_time",
-                  "description": "Event start time",
-                  "required": true,
-                  "type": "string"
-                },
-                {
-                  "in": "body",
-                  "name": "end_time",
-                  "description": "Event end time",
-                  "required": true,
-                  "type": "string"
-                },
-                {
-                  "in": "body",
-                  "name": "location",
-                  "description": "Event Location",
-                  "required": true,
-                  "type": "string"
-                },
-                {
-                  "in": "body",
-                  "name": "is_public",
-                  "description": "Event is public or not",
-                  "required": true,
-                  "type": "string"
-                },
-                {
-                  "in": "body",
-                  "name": "is_active",
-                  "description": "Event is active or not",
-                  "required": true,
-                  "type": "string"
-                },
-                {
-                  "in": "body",
-                  "name": "contact_person",
-                  "description": "Event organizer contact name",
-                  "required": true,
-                  "type": "string"
-                },
-                {
-                  "in": "body",
-                  "name": "contact_number",
-                  "description": "Contact number of Event organizer",
-                  "required": true,
-                  "type": "string"
-                },
-                {
-                  "in": "body",
-                  "name": "website",
-                  "description": "Event website",
-                  "required": true,
-                  "type": "string"
+                  "schema": {
+                            "$ref": "#/definitions/Event"
+                        }
                 }
+                
               ],
               "responses": {
                   "200": {
-                      "description": "Success"
+                      "description": "Success",
+                      "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ShowEvent"
+                            }
+                      }
+                  },
+                  "400": {
+                    "description": "Bad Request",
+                    "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/BadRequest"
+                            }
+                       }
+                  },
+                  "401": {
+                    "description": "Unauthorized",
+                    "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/UnauthorizedRequest"
+                            }
+                       }
+                  },
+                  "500": {
+                    "description": "Internal Server Error",
+                    "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/ServerError"
+                            }
+                       }
                   }
               }
-            }
+          }    
           
         },
         "/events/v0/media": {
@@ -191,7 +215,7 @@
                     "required": true,
                     "type": "integer"
                 },
-                 {
+                {
                     "in": "query",
                     "name": "media_for",
                     "description": "Type of model like company_logo, company_brand, profile, associate_profile,event.",
@@ -199,11 +223,11 @@
                     "type": "string"
                 },
                 {
-                    "in": "body",
+                    "in": "formData",
                     "name": "image_file",
-                    "description": "Image File Content.",
+                    "description": "Image File Content",
                     "required": true,
-                    "type": "string"
+                    "type": "file"
                 }
             ],
             "produces": [
@@ -214,8 +238,14 @@
                     "description": "Success"
                 },
                 "400": {
-                    "description": "Bad Request"
-                },
+                    "description": "Bad Request",
+                    "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/BadRequest"
+                            }
+                       }
+                  },
                 "401": {
                     "description": "Unauthorized"
                 }
@@ -234,7 +264,7 @@
             "parameters": [
                
                 {
-                    "in": "path",
+                    "in": "query",
                     "name": "id",
                     "description": "ID of Picture",
                     "required": true,
@@ -249,8 +279,14 @@
                     "description": "Success"
                 },
                 "400": {
-                    "description": "Bad Request"
-                },
+                    "description": "Bad Request",
+                    "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/BadRequest"
+                            }
+                       }
+                  },
                 "401": {
                     "description": "Unauthorized"
                 }
@@ -264,9 +300,7 @@
                 "tags": ["module:events"],
                 "security": [
                     {
-                        "Bearer": [
-
-                        ]
+                        "Bearer": []
                     }
                 ],
                 "parameters": [
@@ -280,9 +314,42 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/ShowEvent"
+                            }
+                        }
+                    },
+                    "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                              "type": "object",
+                              "items": {
+                                  "$ref": "#/definitions/BadRequest"
+                              }
+                         }
+                    },
+                    "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                              "type": "object",
+                              "items": {
+                                  "$ref": "#/definitions/UnauthorizedRequest"
+                              }
+                         }
+                    },
+                    "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                              "type": "object",
+                              "items": {
+                                  "$ref": "#/definitions/ServerError"
+                              }
+                         }
                     }
-                }
+                }  
             },
             "put": {
                 "summary": "Update an Event.",
@@ -297,25 +364,61 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "tenantId",
-                        "description": "ID of tenant",
-                        "required": true,
-                        "type": "integer"
-                    },
-                    {
-                        "in": "path",
                         "name": "eventId",
                         "description": "ID of event that needs to be update",
                         "required": true,
                         "type": "integer"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "New Event to be add",
+                        "required": true,
+                        "schema": {
+                                "$ref": "#/definitions/Event"
+                        }
                     }
+
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/ShowEvent"
+                            }
+                        }
+                    },
+                    "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                              "type": "object",
+                              "items": {
+                                  "$ref": "#/definitions/BadRequest"
+                              }
+                         }
+                    },
+                    "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                              "type": "object",
+                              "items": {
+                                  "$ref": "#/definitions/UnauthorizedRequest"
+                              }
+                         }
+                    },
+                    "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                              "type": "object",
+                              "items": {
+                                  "$ref": "#/definitions/ServerError"
+                              }
+                         }
                     }
                 }
-            }
+         }   
         },
         "/events/v0/events/{eventId}/attend": {
            "post": {
@@ -323,9 +426,7 @@
                 "tags": ["module:events"],
                 "security": [
                     {
-                        "Bearer": [
-
-                        ]
+                        "Bearer": []
                     }
                 ],
                 "parameters": [
@@ -340,9 +441,210 @@
                 "responses": {
                     "200": {
                         "description": "Success"
+                    },
+                    "400": {
+                    "description": "Bad Request",
+                    "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/BadRequest"
+                            }
+                       }
+                    },
+                    "401": {
+                    "description": "Unauthorized",
+                    "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/UnauthorizedRequest"
+                            }
+                       }
+                    },
+                    "500": {
+                    "description": "Internal Server Error",
+                    "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/ServerError"
+                            }
+                       }
                     }
                 }
             }
         }    
+    },
+    "definitions": {
+        "Event": {
+            "type": "object",
+            "required": [
+                "name",
+                "address",
+                "start_date",
+                "end_date",
+                "start_time",
+                "end_time",
+                "location"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "example": "Sample Event"
+                },
+                "description": {
+                    "type": "string",
+                    "example": "Sample Event"
+                },
+                "address": {
+                    "type": "string",
+                    "example": "Hyderabad"
+                },
+                "location": {
+                    "type": "string",
+                    "example": "Hitech City"
+                },
+                "contact_person": {
+                    "type": "string",
+                    "example": "Jhon"
+                },
+                "contact_number": {
+                    "type": "string",
+                    "example": "8769876567"
+                },
+                "website": {
+                    "type": "string",
+                    "example": "http://wavelabs.in"
+                },
+                "start_date": {
+                   "type": "string",
+                   "example": "10-10-2016"
+                },
+                "end_date": {
+                   "type": "string",
+                   "example": "10-10-2016"
+                },
+                "start_time": {
+                   "type": "string",
+                   "example": "10:30"
+                },
+                "end_time": {
+                   "type": "string",
+                   "example": "17:30"
+                }
+            }
+        },
+        "ShowEvent": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "name": {
+                    "type": "string",
+                    "example": "Sample Event"
+                },
+                "description": {
+                    "type": "string",
+                    "example": "Sample Event"
+                },
+                "address": {
+                    "type": "string",
+                    "example": "Hyderabad"
+                },
+                "location": {
+                    "type": "string",
+                    "example": "Hitech City"
+                },
+                "contact_person": {
+                    "type": "string",
+                    "example": "Jhon"
+                },
+                "contact_number": {
+                    "type": "string",
+                    "example": "8769876567"
+                },
+                "website": {
+                    "type": "string",
+                    "example": "http://wavelabs.in"
+                },
+                "image_url": {
+                    "type": "object",
+                    "example": {
+                                "id": 1,
+                                "extension": "image/jpeg",
+                                "mediaFileDetailsList": [
+                                  {
+                                    "mediapath": "http://localhost:3000/images/media/events/1/medium/event2.jpg?1475065430",
+                                    "mediatype": "medium"
+                                  },
+                                  {
+                                    "mediapath": "http://localhost:3000/images/media/events/1/small/event2.jpg?1475065430",
+                                    "mediatype": "small"
+                                  },
+                                  {
+                                    "mediapath": "http://localhost:3000/images/media/events/1/original/event2.jpg?1475065430",
+                                    "mediatype": "original"
+                                  }
+                                ],
+                                "supportedsizes": "small:48x48,medium:300x200"
+                     }           
+                },
+                "schedule_time": {
+                     "type": "string",
+                     "example": "09:30AM-05:30AM"
+                },
+                "schedule_date": {
+                     "type": "string",
+                     "example": "Oct 10-Oct 10"
+                },
+                "attendencies": {
+                     "type": "integer",
+                     "example": 0
+                }
+            }
+        },
+        "BadRequest": {
+          "type": "object",
+          "properties": {
+            "messageCode": {
+                "type": "string",
+                "example": "bad.request"
+            },
+            "message": {
+                "type": "string",
+                "example": "Bad Request"
+            }
+          }
+
+        },
+        "UnauthorizedRequest": {
+          "type": "object",
+          "properties": {
+            "messageCode": {
+                "type": "string",
+                "example": "module.unauthorised"
+            },
+            "message": {
+                "type": "string",
+                "example": "Unauthorized Access"
+            }
+          }
+
+        },
+        "ServerError": {
+          "type": "object",
+          "properties": {
+            "messageCode": {
+                "type": "string",
+                "example": "internal.server.error"
+            },
+            "message": {
+                "type": "string",
+                "example": "Internal Server Error"
+            }
+          }
+
+        }  
     }
 }
