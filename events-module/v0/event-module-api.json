@@ -139,10 +139,7 @@
                   "200": {
                       "description": "Success",
                       "schema": {
-                            "type": "object",
-                            "items": {
-                                "$ref": "#/definitions/ShowEvent"
-                            }
+                            "$ref": "#/definitions/ShowEvent"
                       }
                   },
                   "400": {
@@ -209,10 +206,7 @@
                 "200": {
                     "description": "Success",
                     "schema": {
-                            "type": "object",
-                            "items": {
-                                "$ref": "#/definitions/Media"
-                            }
+                          "$ref": "#/definitions/Media"
                        }
                 },
                 "400": {
@@ -262,11 +256,8 @@
                 "200": {
                     "description": "Success",
                     "schema": {
-                            "type": "object",
-                            "items": {
-                                "$ref": "#/definitions/Media"
-                            }
-                       }
+                            "$ref": "#/definitions/Media"
+                    }
                 },
                 "400": {
                   "description": "Bad Request",
@@ -312,10 +303,7 @@
                     "200": {
                         "description": "Success",
                         "schema": {
-                            "type": "object",
-                            "items": {
-                                "$ref": "#/definitions/ShowEvent"
-                            }
+                            "$ref": "#/definitions/ShowEvent"
                         }
                     },
                     "400": {
@@ -371,10 +359,7 @@
                     "200": {
                         "description": "Success",
                         "schema": {
-                            "type": "object",
-                            "items": {
-                                "$ref": "#/definitions/ShowEvent"
-                            }
+                            "$ref": "#/definitions/ShowEvent"
                         }
                     },
                     "400": {
@@ -418,7 +403,10 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/ShowEvent"
+                        }
                     },
                     "400": {
                       "description": "Bad Request",
@@ -586,16 +574,20 @@
             ],
           "properties": {
             "id": {
-                "type": "integer"
+                "type": "integer",
+                "items": {}
             },
             "extension": {
-                "type": "string"
+                "type": "string",
+                "items": {}
             },
             "mediaFileDetailsList": {
-                "type": "array"
+                "type": "array",
+                "items": {}
             },
             "supportedsizes": {
-                "type": "string"
+                "type": "string",
+                "items": {}
             }
           }
 
