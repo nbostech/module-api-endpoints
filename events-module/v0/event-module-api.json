@@ -643,11 +643,11 @@
           "properties": {
             "messageCode": {
                 "type": "string",
-                "example": "bad.request"
+                "default": "bad.request"
             },
             "message": {
                 "type": "string",
-                "example": "Bad Request"
+                "default": "Bad Request"
             }
           }
 
@@ -661,11 +661,11 @@
           "properties": {
             "messageCode": {
                 "type": "string",
-                "example": "module.unauthorised"
+                "default": "module.unauthorised"
             },
             "message": {
                 "type": "string",
-                "example": "Unauthorized Access"
+                "default": "Unauthorized Access"
             }
           }
 
@@ -679,11 +679,11 @@
           "properties": {
             "messageCode": {
                 "type": "string",
-                "example": "internal.server.error"
+                "default": "internal.server.error"
             },
             "message": {
                 "type": "string",
-                "example": "Internal Server Error"
+                "default": "Internal Server Error"
             }
           }
 
