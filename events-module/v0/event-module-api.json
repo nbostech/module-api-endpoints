@@ -48,7 +48,7 @@
                     "200": {
                         "description": "Success",
                          "schema": {
-                            "type": "array",
+                            "type": "object",
                             "items": {
                                 "$ref": "#/definitions/ShowEvent"
                             }
@@ -99,7 +99,7 @@
                   "200": {
                       "description": "Success",
                       "schema": {
-                            "type": "array",
+                            "type": "object",
                             "items": {
                                 "$ref": "#/definitions/ShowEvent"
                             }
@@ -158,7 +158,7 @@
                   "200": {
                       "description": "Success",
                       "schema": {
-                            "type": "array",
+                            "type": "object",
                             "items": {
                                 "$ref": "#/definitions/ShowEvent"
                             }
@@ -235,7 +235,13 @@
             ],                
             "responses": {
                 "200": {
-                    "description": "Success"
+                    "description": "Success",
+                    "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/Media"
+                            }
+                       }
                 },
                 "400": {
                     "description": "Bad Request",
@@ -291,7 +297,13 @@
             ],                
             "responses": {
                 "200": {
-                    "description": "Success"
+                    "description": "Success",
+                    "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/Media"
+                            }
+                       }
                 },
                 "400": {
                     "description": "Bad Request",
@@ -633,6 +645,47 @@
                      "example": 0
                 }
             }
+        },
+        "Media": {
+          "type": "object",
+          "required": [
+                "id",
+                "extension",
+                "mediaFileDetailsList",
+                "supportedsizes"
+            ],
+          "properties": {
+            "id": {
+                "type": "integer",
+                "default": 1
+            },
+            "extension": {
+                "type": "string",
+                "default": "image/jpeg"
+            },
+            "mediaFileDetailsList": {
+                "type": "array",
+                "default": [
+                            {
+                              "mediapath": "http://localhost:3000/images/media/events/1/medium/event2.jpg?1475065430",
+                              "mediatype": "medium"
+                            },
+                            {
+                              "mediapath": "http://localhost:3000/images/media/events/1/small/event2.jpg?1475065430",
+                              "mediatype": "small"
+                            },
+                            {
+                              "mediapath": "http://localhost:3000/images/media/events/1/original/event2.jpg?1475065430",
+                              "mediatype": "original"
+                            }
+                          ]
+            },
+            "supportedsizes": {
+                "type": "string",
+                "default": "small:48x48,medium:300x200"
+            }
+          }
+
         },
         "BadRequest": {
           "type": "object",
