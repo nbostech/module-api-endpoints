@@ -32,7 +32,7 @@
                 "tags": ["module:events"],
                 "security": [
                     {
-                        "Bearer": [ "apiKey"]
+                        "Bearer": []
                     }
                 ],
                 "parameters": [
@@ -246,9 +246,24 @@
                             }
                        }
                   },
-                "401": {
-                    "description": "Unauthorized"
-                }
+                  "401": {
+                    "description": "Unauthorized",
+                    "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/UnauthorizedRequest"
+                            }
+                       }
+                  },
+                  "500": {
+                    "description": "Internal Server Error",
+                    "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/ServerError"
+                            }
+                       }
+                  }
             }
           },
           "get": {
@@ -287,9 +302,24 @@
                             }
                        }
                   },
-                "401": {
-                    "description": "Unauthorized"
-                }
+                  "401": {
+                    "description": "Unauthorized",
+                    "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/UnauthorizedRequest"
+                            }
+                       }
+                  },
+                  "500": {
+                    "description": "Internal Server Error",
+                    "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/ServerError"
+                            }
+                       }
+                  }
             }
           }
 
@@ -606,6 +636,10 @@
         },
         "BadRequest": {
           "type": "object",
+          "required": [
+                "messageCode",
+                "message"
+            ],
           "properties": {
             "messageCode": {
                 "type": "string",
@@ -620,6 +654,10 @@
         },
         "UnauthorizedRequest": {
           "type": "object",
+          "required": [
+                "messageCode",
+                "message"
+            ],
           "properties": {
             "messageCode": {
                 "type": "string",
@@ -634,6 +672,10 @@
         },
         "ServerError": {
           "type": "object",
+          "required": [
+                "messageCode",
+                "message"
+            ],
           "properties": {
             "messageCode": {
                 "type": "string",
