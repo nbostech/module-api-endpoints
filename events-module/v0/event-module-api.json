@@ -157,7 +157,7 @@
                   "500": {
                     "description": "Internal Server Error",
                     "schema": {
-                        "$ref": "#/definitions/ServerError"
+                        "$ref": "#/definitions/EventModelError"
                     }
                   }
               }
@@ -377,7 +377,7 @@
                     "500": {
                       "description": "Internal Server Error",
                       "schema": {
-                          "$ref": "#/definitions/ServerError"
+                          "$ref": "#/definitions/EventModelError"
                       }
                     }
                 }
@@ -564,6 +564,26 @@
                 }
             }
         },
+        "EventModelError": {
+          "type": "object",
+          "required": [
+                "errors"
+            ],
+          "properties": {
+            "errors": {
+               "type": "array",
+               "items": {},
+               "default": [
+                            {
+                              "messageCode": "event.name",
+                              "message": "name empty",
+                              "propertyName": "name",
+                              "objectName": "Com::Nbos::Events::Event"
+                            }
+                          ]  
+            }
+          }  
+        },
         "Media": {
           "type": "object",
           "required": [
@@ -600,10 +620,12 @@
             ],
           "properties": {
             "messageCode": {
-                "type": "string"
+                "type": "string",
+                "default": "Bad.Request"
             },
             "message": {
-                "type": "string"
+                "type": "string",
+                "default": "Bad Request"
             }
           }
 
@@ -616,10 +638,12 @@
             ],
           "properties": {
             "messageCode": {
-                "type": "string"
+                "type": "string",
+                "default": "module.unauthorized"
             },
             "message": {
-                "type": "string"
+                "type": "string",
+                "default": "You are not SubScribed To Event Module"
             }
           }
 
@@ -632,10 +656,12 @@
             ],
           "properties": {
             "messageCode": {
-                "type": "string"
+                "type": "string",
+                "default": "internal.server.error"
             },
             "message": {
-                "type": "string"
+                "type": "string",
+                "default": "Internal Server Error"
             }
           }
 
