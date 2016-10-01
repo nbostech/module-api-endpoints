@@ -4,7 +4,7 @@
         "version": "0.0.0",
         "title": "Generic Todo module"
     },
-    "host": "http://localhost:3000",
+    "host": "localhost:3000",
     "basePath": "/api",
     "schemes": [
         "http"
@@ -187,7 +187,7 @@
                       "description": "Update Todo Details",
                       "required": true,
                       "schema": {
-                            "$ref": "#/definitions/ShowTodo"
+                            "$ref": "#/definitions/UpdateTodo"
                       }
                   }
               ],
@@ -296,6 +296,34 @@
           }
 
       },
+      "UpdateTodo": {
+         "type": "object",
+         "required": [
+            "title",
+            "note",
+            "completed",
+            "public"
+         ],
+         "properties": {
+            "title": {
+              "type": "string",
+              "default": "My Todo"
+            },
+            "note": {
+              "type": "string",
+              "default": "My sample Todo"
+            },
+            "completed": {
+              "type": "boolean",
+              "default": true
+            },
+            "public": {
+              "type": "boolean",
+              "default": true
+            }
+         }
+
+      },
       "TodoModelError": {
           "type": "object",
           "required": [
@@ -307,9 +335,9 @@
                "items": {},
                "default": [
                             {
-                              "messageCode": "todo.name",
-                              "message": "name empty",
-                              "propertyName": "name",
+                              "messageCode": "todo.title",
+                              "message": "title empty",
+                              "propertyName": "title",
                               "objectName": "Com::Nbos::Modules::Todos::Todo"
                             }
                           ]  
