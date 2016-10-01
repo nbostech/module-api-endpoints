@@ -6,6 +6,16 @@
     },
     "host": "http://localhost:3000",
     "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json",
+        "application/xml"
+    ],
     "securityDefinitions":
     {
      "Bearer":{
@@ -18,26 +28,46 @@
         "/todo/v0/todos": {
             "get": {
                 "summary": "List of all public Todos in a tenant or user's todos",
-                "tags": ["module:rails-todos"],
+                "tags": ["module:RoR-todo"],
                 "security": [
                     {
-                        "Bearer": [
-
-                        ]
+                      "Bearer": []
                     }
                 ],
-                "parameters": [
-
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Success",
+                         "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ShowTodo"
+                            }
+                        }
+                    },
+                    "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/BadRequest"
+                      }
+                    },
+                    "401": {
+                      "description": "Unauthorized",
+                      "schema": { 
+                          "$ref": "#/definitions/UnauthorizedRequest"
+                      }
+                    },
+                    "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/ServerError"
+                      }
                     }
                 }
             },
             "post": {
                 "summary": "Create a user's Todo",
-                "tags": ["module:rails-todos"],
+                "tags": ["module:RoR-todo"],
                 "security": [
                     {
                         "Bearer": [
@@ -48,39 +78,48 @@
                 "parameters": [
                     {
                         "in": "body",
-                        "name": "title",
-                        "description": "Name of the todo",
+                        "name": "body",
+                        "description": "Todo need to be add",
                         "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "note",
-                        "description": "Description of the todo",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "completed",
-                        "description": "Status of the todo whether it is completed or not",
-                        "required": true,
-                        "type": "boolean"
+                        "schema": {
+                            "$ref": "#/definitions/CreateTodo"
+                        }
                     }
 
                 ],
                 "responses": {
-                    "200": {
-                        "description": "Success"
+                  "200": {
+                      "description": "Success",
+                      "schema": {
+                            "$ref": "#/definitions/ShowTodo"
+                      }
+                  },
+                  "400": {
+                    "description": "Bad Request",
+                    "schema": {
+                        "$ref": "#/definitions/BadRequest"
                     }
-                }
+                  },
+                  "401": {
+                    "description": "Unauthorized",
+                    "schema": { 
+                        "$ref": "#/definitions/UnauthorizedRequest"
+                    }
+                  },
+                  "500": {
+                    "description": "Internal Server Error",
+                    "schema": {
+                        "$ref": "#/definitions/TodoModelError"
+                    }
+                  }
+              }
             }
 
         },
         "/todo/v0/todos/{id}": {
            "get": {
               "summary": "Show particular todo details",
-              "tags": ["module:rails-todos"],
+              "tags": ["module:RoR-todo"],
               "security": [
                   {
                     "Bearer": [
@@ -99,13 +138,34 @@
               ],
               "responses": {
                   "200": {
-                      "description": "Success"
+                      "description": "Success",
+                      "schema": {
+                            "$ref": "#/definitions/ShowTodo"
+                      }
+                  },
+                  "400": {
+                    "description": "Bad Request",
+                    "schema": {
+                        "$ref": "#/definitions/BadRequest"
+                    }
+                  },
+                  "401": {
+                    "description": "Unauthorized",
+                    "schema": { 
+                        "$ref": "#/definitions/UnauthorizedRequest"
+                    }
+                  },
+                  "500": {
+                    "description": "Internal Server Error",
+                    "schema": {
+                        "$ref": "#/definitions/ServerError"
+                    }
                   }
               }
             },
           "put": {
               "summary": "Update particular todo",
-              "tags": ["module:rails-todos"],
+              "tags": ["module:RoR-todo"],
               "security": [
                   {
                     "Bearer": [
@@ -115,40 +175,201 @@
               ],
               "parameters": [
                   {
-                      "in": "body",
-                      "name": "title",
-                      "description": "Name of the todo",
-                      "required": true,
-                      "type": "string"
+                    "in": "path",
+                    "name": "id",
+                    "description": "id of the todo",
+                    "required": true,
+                    "type": "integer"
                   },
                   {
                       "in": "body",
-                      "name": "note",
-                      "description": "Description of the todo",
+                      "name": "body",
+                      "description": "Update Todo Details",
                       "required": true,
-                      "type": "string"
-                  },
-                  {
-                      "in": "body",
-                      "name": "completed",
-                      "description": "Status of the todo whether it is completed or not",
-                      "required": true,
-                      "type": "boolean"
-                  },
-                  {
-                      "in": "body",
-                      "name": "public",
-                      "description": "Scope of the todo whether it is public within a tenant or not",
-                      "required": true,
-                      "type": "boolean"
+                      "schema": {
+                            "$ref": "#/definitions/ShowTodo"
+                      }
                   }
               ],
               "responses": {
                   "200": {
-                      "description": "Success"
+                      "description": "Success",
+                      "schema": {
+                            "$ref": "#/definitions/ShowTodo"
+                      }
+                  },
+                  "400": {
+                    "description": "Bad Request",
+                    "schema": {
+                        "$ref": "#/definitions/BadRequest"
+                    }
+                  },
+                  "401": {
+                    "description": "Unauthorized",
+                    "schema": { 
+                        "$ref": "#/definitions/UnauthorizedRequest"
+                    }
+                  },
+                  "500": {
+                    "description": "Internal Server Error",
+                    "schema": {
+                        "$ref": "#/definitions/TodoModelError"
+                    }
                   }
               }
             } 
         }   
+    },
+    "definitions": {
+      "CreateTodo": {
+        "type": "object",
+          "required": [
+                "title",
+                "note"
+            ],
+          "properties": {
+             "title": {
+                "type": "string",
+                "default": "My Todo"
+              },
+             "note": {
+                "type": "string",
+                "default": "My Sample Todo"
+              },
+             "completed": {
+                "type": "boolean",
+                "default": false
+              }
+          }
+
+      },
+      "ShowTodo": {
+          "type": "object",
+          "required": [
+                "id",
+                "title",
+                "note",
+                "completed",
+                "public",
+                "user_id",
+                "tenant_id",
+                "created_at",
+                "updated_at"
+            ],
+          "properties": {
+             "id": {
+                "type": "integer",
+                "default": 1
+              },
+             "title": {
+                "type": "string",
+                "default": "My Todo"
+              }, 
+             "note": {
+                "type": "string",
+                "default": "My Sample Todo"
+              },
+             "completed": {
+                "type": "boolean",
+                "default": false
+              },
+             "public": {
+                "type": "boolean",
+                "default": false
+              },
+             "user_id": {
+                "type": "integer",
+                "default": 1
+              },
+             "tenant_id": {
+                "type": "string",
+                "default": "TNT:TES-c4e7lki8"
+              },
+             "created_at": {
+                "type": "string",
+                "default": "2016-09-14T04:16:23.000Z"
+             },
+             "updated_at": {
+                "type": "string",
+                "default": "2016-09-14T04:16:23.000Z"
+             }
+          }
+
+      },
+      "TodoModelError": {
+          "type": "object",
+          "required": [
+                "errors"
+            ],
+          "properties": {
+            "errors": {
+               "type": "array",
+               "items": {},
+               "default": [
+                            {
+                              "messageCode": "todo.name",
+                              "message": "name empty",
+                              "propertyName": "name",
+                              "objectName": "Com::Nbos::Modules::Todos::Todo"
+                            }
+                          ]  
+            }
+          }  
+      },
+      "BadRequest": {
+          "type": "object",
+          "required": [
+                "messageCode",
+                "message"
+            ],
+          "properties": {
+            "messageCode": {
+                "type": "string",
+                "default": "Bad.Request"
+            },
+            "message": {
+                "type": "string",
+                "default": "Bad Request"
+            }
+          }
+
+      },
+      "UnauthorizedRequest": {
+          "type": "object",
+          "required": [
+                "messageCode",
+                "message"
+            ],
+          "properties": {
+            "messageCode": {
+                "type": "string",
+                "default": "module.unauthorized"
+            },
+            "message": {
+                "type": "string",
+                "default": "You are not SubScribed To ToDo Module"
+            }
+          }
+
+      },
+      "ServerError": {
+          "type": "object",
+          "required": [
+                "messageCode",
+                "message"
+            ],
+          "properties": {
+            "messageCode": {
+                "type": "string",
+                "default": "internal.server.error"
+            },
+            "message": {
+                "type": "string",
+                "default": "Internal Server Error"
+            }
+          }
+
+      }
+
     }
 }
