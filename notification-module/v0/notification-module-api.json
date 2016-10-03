@@ -7,7 +7,7 @@
         "termsOfService": "http://www.nbos.in"
     },
     "host":"notifications.nbos.in",
-    "basePath": "/notifications/v0/tenantId",
+    "basePath": "api/notifications/v0/TNT:INA",
     "schemes": ["http"],
     "paths": {
         "/register": {
