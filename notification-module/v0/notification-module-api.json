@@ -6,7 +6,7 @@
         "title": "Push Notiifcation Server API",
         "termsOfService": "http://www.nbos.in"
     },
-    "host":"notifications.nbos.in",
+    "host":"pushnotification.qa.nbos.in",
     "basePath": "api/notifications/v0/TNT:INA",
     "schemes": ["http"],
     "paths": {
