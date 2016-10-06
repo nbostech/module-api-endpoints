@@ -217,7 +217,53 @@
                     }
                   }
               }
-            } 
+            },
+          "delete": {
+              "summary": "Delete a todo",
+              "tags": ["module:RoR-todo"],
+              "security": [
+                  {
+                    "Bearer": [
+
+                    ]
+                  }
+              ],
+              "parameters": [
+                {
+                  "in": "path",
+                  "name": "id",
+                  "description": "id of the todo",
+                  "required": true,
+                  "type": "integer"
+                }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Success",
+                      "schema": {
+                            "$ref": "#/definitions/Removesuccess"
+                      }
+                  },
+                  "400": {
+                    "description": "Bad Request",
+                    "schema": {
+                        "$ref": "#/definitions/BadRequest"
+                    }
+                  },
+                  "401": {
+                    "description": "Unauthorized",
+                    "schema": { 
+                        "$ref": "#/definitions/UnauthorizedRequest"
+                    }
+                  },
+                  "500": {
+                    "description": "Internal Server Error",
+                    "schema": {
+                        "$ref": "#/definitions/ServerError"
+                    }
+                  }
+              }
+            }   
         }   
     },
     "definitions": {
@@ -343,6 +389,24 @@
                           ]  
             }
           }  
+      },
+      "Removesuccess": {
+        "type": "object",
+          "required": [
+                "messageCode",
+                "message"
+            ],
+          "properties": {
+            "messageCode": {
+                "type": "string",
+                "default": "module.delete.success"
+            },
+            "message": {
+                "type": "string",
+                "default": "Todo deleted successfully"
+            }
+          }
+
       },
       "BadRequest": {
           "type": "object",
